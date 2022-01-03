@@ -134,3 +134,66 @@
 - Countermeasures to social or technical threats can be both social or technical, so both options must be considered
   - When a recipient of a software product denies receiving it, a social solution would be to require a third-party notary to prove it (political and legal layer); a technical countermeasure could be to use digital signatures
   - To prevent injection of source code during software distribution, a social solution could be a third-party escrow, and a technical countermeasure would be the use of i.e. a VPN or TLS
+
+## Risks in the Software Supply Chain
+
+- Security is a lifecycle issue:
+  - Mission thread
+  - Threat analysis
+  - Abuse cases
+  - Architecture and design principles
+  - Coding rules and guidelines
+  - Testing, validation and verification
+  - Monitoring
+  - Breach awareness
+- Historically, software development didn't have a supply chain
+  - Software was limited in size, function and audience
+  - Each organization had their own developers
+  - Each organization created their own software
+- Modern software development has a complex supply chain
+  - Function is largely understood and can automate existing processes
+  - Is large enough to not be manageable by a single organization
+  - Software can be a business opportunity for external organizations
+- Modern development is assembly of existing software; the supply chain gets longer
+  - App server
+  - HTTP server
+  - XML parser
+  - C libraries
+  - C compiler
+  - Generated parser
+  - Parser generator
+  - 2nd compiler
+- Toolchain corruption is starting to become an issue
+  - XCodeGhost, Expensive Wall, HackTask: WeChat, Angry Bird, iOBD2
+- Both COTS and FLOSS can have software issues which can be hard to pinpoint (Heartbleed, Shellshock etc. - ~1 vulnerability per 10k lines of code)
+- Generated or supplied data can be vulnerabilities too, but are almost never checked
+  - Data from i.e. Pandas, Numpy, TensorFlow, PyTorch etc.
+  - Kaggle, Data.gov, Google Images etc.
+- Reducing software supply chain risk factors
+  - Supplier capability: Supplier follows best practices for internal practices too
+  - Product security: The delivered product is secure
+  - Product distribution: Method of delivering the product is secure
+  - Operational product control: The product is used securely
+- Supplier security commitment evidence
+  - Employees are educated about security
+    - Education level is notarized
+    - Non-expired education material is used
+    - Credentials of instructors are known, and notarized
+  - Supplier follows suitable security design practices
+    - Design guidelines are documented
+    - Attack patterns have been analyzed
+    - Code signing is used
+- Good product distribution practices
+  - Understand that you inherit the consequences of bad upstream practices
+  - Require good security practices by your suppliers
+  - Security of delivered products must be assessed
+  - Additional risk of delivered products in their context must also be assessed
+  - Internal suppliers should be used as little possible
+  - Build FLOSS code only with trusted compilers
+- Attacks on distribution environments
+  - Source code: Shadowpad, Anti-Virus Code
+  - Download site: Havex/Dragonfly, KingSlayer, CCleaner
+  - Patch site: NotPetya/MeDoc
+- Integrating FLOSS
+  - Establish a supplier: Self or a third party focusing on FLOSS (i.e. RedHat, SUSE etc.)
+  - Subject to same evaluation: Supplier capability, product security, product distribution, operational product control
