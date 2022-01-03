@@ -197,3 +197,25 @@
 - Integrating FLOSS
   - Establish a supplier: Self or a third party focusing on FLOSS (i.e. RedHat, SUSE etc.)
   - Subject to same evaluation: Supplier capability, product security, product distribution, operational product control
+
+## in-toto: Providing farm-to-table guarantees for bits and bytes
+
+- Examples of supply chain attacks
+  - Version control systems: Linux kernel, Gentoo and Google
+  - Build systems: Fedora, which allowed for signing backdoored version of security packages
+  - Build environment: CCleaner
+  - Software updaters: Microsoft, Adobe, Google and Linux distros
+  - Are now also used by nation states against foreign states and own citizens
+- Current state
+  - Supply chain security is limited so securing individual steps
+  - Git commit signing: Controls which devs can modify what in a repo
+  - Reproducible builds: Enables building the software by multiple parties and result must be the same
+  - Software delivery is taken care of by many methods (i.e. APT/DNF/Flatpak repos etc.)
+- Issues with the current state
+  - Securing each state is useful, but it is possible to modify a step and feed it to the next one without being noticed
+  - No way to verify that the correct steps were followed or that the artifacts between the individual steps were not tampered with
+  - Web server compromise of Linux Mint enabled redirects of downloaded images, thus signatures, checksums etc. were rendered useless
+- in-toto intents to enforce the integrity of the entire supply chain
+  - Declaration and signing of a layout with how and by whom the steps are to be carried out
+  - The involved parties record actions and create a signed statement (link metadata) for each step
+  - Link metadata can be verified for each step: Executed appropriately and by the correct party as defined in the layout
