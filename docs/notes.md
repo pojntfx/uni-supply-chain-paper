@@ -84,7 +84,7 @@
 }
 ```
 
-**Socio-technical Framework for Threat Modeling a Software Supply Chain**
+## Socio-technical Framework for Threat Modeling a Software Supply Chain
 
 - Software supply chains are similar to traditional supply chains
 - A supply chain is created by deploying and using a product directly or reproducing it as a new product in repetition
@@ -122,3 +122,15 @@
 - Supplier sourcing and product delivery link companies together, which often leads to generic processes like software packaging
 - FLOSS and COTS software are transmitted from supplier sourcing to software development and testing processes, including related secrets and vulnerability information
 - In the delivery process, four or five elements (secrets, vulnerabilities, source package and/or binary package, user guide) are sent to the user (over the network or physically)
+- The security by consensus model can be used to find social threats too; these exist due to human errors or behavior (intentional or not)
+  - Suppliers can deny having sent a software product
+  - Ordered software products might not arrive in time (due to i.e. QA problems)
+  - Secrets of outsourced software might be disclosed by employees, i.e. hard-coded key or seed values
+  - Users might make configuration mistakes, such as choosing very short key lengths, if the user guide (which is being distributed as part of the product through the supply chain) has been tampered with
+- Technical threats can be analyzed using the three bottom layers of the security by consensus model (hardware, operating system, applications)
+  - Software supplier's storage hardware can be compromised, which allows externals to inject source code into i.e. source repositories or packages
+  - Outsourced software's source repository can be breached to gain access to hard-coded keys (i.e. API keys in CI/CD env)
+  - Download sites or update systems can be compromised
+- Countermeasures to social or technical threats can be both social or technical, so both options must be considered
+  - When a recipient of a software product denies receiving it, a social solution would be to require a third-party notary to prove it (political and legal layer); a technical countermeasure could be to use digital signatures
+  - To prevent injection of source code during software distribution, a social solution could be a third-party escrow, and a technical countermeasure would be the use of i.e. a VPN or TLS
