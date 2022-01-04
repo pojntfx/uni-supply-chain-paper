@@ -215,6 +215,8 @@
   - Securing each state is useful, but it is possible to modify a step and feed it to the next one without being noticed
   - No way to verify that the correct steps were followed or that the artifacts between the individual steps were not tampered with
   - Web server compromise of Linux Mint enabled redirects of downloaded images, thus signatures, checksums etc. were rendered useless
+  - Fuzzers etc. are used, but the delivered product rarely includes information about the software it was tested with
+  - Solutions designed to secure individual supply chain steps cannot guarantee the security of the entire chain as a whole
 - in-toto intents to enforce the integrity of the entire supply chain
   - Declaration and signing of a layout with how and by whom the steps are to be carried out
   - The involved parties record actions and create a signed statement (link metadata) for each step
@@ -248,3 +250,22 @@
   - Step authentication: Steps can only be performed by the intended parties
   - Implementation transparency: Existing supply chains need not be changed
   - Graceful degradation of security properties: In the event of key compromise, not all security properties should be lost
+- Parties
+  - Project owner: Defines the layout (i.e. FLOSS maintainer)
+  - Functionaries: Perform steps in the chain (i.e. build farm or human)
+  - Client: Inspects, verifies and utilizes a delivered product (i.e. end user)
+- Security properties with no key compromise (breach of infrastructure or comms channels, but not keys)
+  - Attacker cannot modify artifacts in between two steps or delivered product as the hash would fail validation
+  - Attacker cannot provide a product with missing or reordered steps because embedded steps information would detect tampering
+  - Attacker cannot provide link metadata because they can't sign it
+- Security properties with key compromise
+  - Fake-check: Attacker fakes that step has been run (i.e. signing or tests) when it actually didn't run
+  - Product modification: Attacker provides tampered artifact as input to next step
+  - Unintended retention: Attacker does not remove artifacts for next step which should have been removed, i.e. exploitable debug code
+  - Arbitrary supply chain control: Attacker is able to provide alternate delivered product, which creates an alternative supply chain
+  - Functionary compromise: Artifact flow integrity and step authentication is violated (attacker can forge link metadata), but attack surface is limited by rules of step that the functionary can do (i.e. unintended retention would only be possible if `DELETE` rule is missing). Can be mitigated by requiring multiple parties to do the job, thus requiring the breach to happen on i.e. multiple hosts.
+  - Project owner compromise: Allows redefinition of layout; layout key however is rarely used, and should be kept offline, requiring a physical breach
+- User response to failed validations
+  - If the user is i.e. testing out a package in an air-gapped VM, they might choose to ignore the error
+  - If the user is using a production system, they will probably detect or report the validation failure
+  - Actions taken are probably similar to signature validation failures today
