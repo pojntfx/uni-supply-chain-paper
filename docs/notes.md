@@ -291,3 +291,19 @@
   - The Update Framework (TUF) is used to provide a higher layer of signed metadata and replay protection
   - Offline keys (in safe deposit boxes) are used, so that breaches of infrastructure don't lead to key compromise
 - Storage overhead
+  - In the case of the Datadog deployment, ~19% of repo size was taken up by in-toto data, which is about four times higher than TUF
+  - Size is primarily larger because the data is stored as part of the pipeline
+  - Large signatures also add to the size
+- Network overhead
+  - This overhead is of importance as large downloads increase i.e. installation times
+  - Size scales with number of files, not file size due to links making up much of the size
+  - Metadata size is ~44% of the package size, but can escalate if many small files are included
+- Verification overhead is fairly low, with a verification overhead of ~0.6 seconds on an i7-6500U with 8 GB of RAM
+- Protection against previous breaches
+  - Three categories of breaches: Control of infrastructure but not functionary keys, control of part of infrastructure or keys of specific functionary, and control of the entire supply chain by compromising project owner infrastructure including keys
+  - The majority of surveyed attacks (23/30) did not include a key compromise, where in-toto's client inspection would have detected the tampering
+  - In the Keydnap attack, where an Apple developer certificate was stolen and used to sign a malicious software package, inspection with in-toto would have detected the attack due to a unauthorized functionary signing the link metadata
+  - In another attack, the developer's SSH key was used to sign a malicious Python package, which could have been prevented with in-toto as the files extracted from the malicious package would not match the source from the first step in the chain
+  - CCleaner and RedHat attacks would not have been effective against Reproducible Builds and Datadog's setup due to the threshold mechanism (where multiple hosts build the artifacts), but the Cloud-Native deployment would not detect these attacks
+  - In total, both Cloud-Native (with 83% prevention as a result of in-toto usage) and reproducible builds (with 90% prevention) integrations of in-toto would prevent most historical attacks
+  - Integration of in-toto with secure update systems like Datadog's deployment provides further protection (against 100% of surveyed historical supply chain attacks in this case)
