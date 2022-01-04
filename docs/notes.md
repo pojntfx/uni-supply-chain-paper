@@ -269,3 +269,25 @@
   - If the user is i.e. testing out a package in an air-gapped VM, they might choose to ignore the error
   - If the user is using a production system, they will probably detect or report the validation failure
   - Actions taken are probably similar to signature validation failures today
+
+## Part 4: Evaluation (in-toto: Providing farm-to-table guarantees for bits and bytes)
+
+- Debian rebuilders
+  - Reproducible builds are bit-by-bit reproducible, so it is possible to build a package on a separate host and get the same hash on the result
+  - A `apt-transport` for in-toto is used to provide attestations of the resulting builds using link metadata
+  - Allow cryptographically asserting that a Debian package has been reproducibly built by `k` out of `n` rebuilders and the Debian build farm
+  - Modification of a package would require breaching at least `k` out of `n` rebuilders, which the client can verify
+- Cloud native builds with Jenkins and Kubernetes
+  - Cloud-native/containerized environments require high levels of automation
+  - Exporters of metadata must be host- and infrastructure-agnostic
+  - Lead to implementation of a Jenkins plugin and a Kubernetes admission controller which allow for the tracking of all operations in a distributed system
+  - Pipelines are coordinators, workers are functionaries and submit metadata to an in-toto metadata store
+  - Admission controller validates information in the metadata store before deploying
+- E2E verification of Python packages
+  - Tag step outputs Python code and YAML config files as products, which is signed using a YubiKey
+  - Builder receives source code from the first step and builds a Python wheel and updated metadata
+  - Signer receives source code from the first step and signs it, which is separate from the builder step as the builder step can, due to Python's design, execute arbitrary code
+  - Inspection ensures that the build wheel matches the materials of the signer and the original source code from the first step (end-to-end verification)
+  - The Update Framework (TUF) is used to provide a higher layer of signed metadata and replay protection
+  - Offline keys (in safe deposit boxes) are used, so that breaches of infrastructure don't lead to key compromise
+- Storage overhead
