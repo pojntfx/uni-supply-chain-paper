@@ -6,83 +6,118 @@
 
 ```bibtex
 @techreport{sherman2019risks,
-    title={Risks in the software supply chain},
-    author={Sherman, Mark},
-    year={2019},
-    institution={CARNEGIE-MELLON UNIV PITTSBURGH PA PITTSBURGH United States}
+  title       = {Risks in the software supply chain},
+  author      = {Sherman, Mark},
+  year        = {2019},
+  institution = {CARNEGIE-MELLON UNIV PITTSBURGH PA PITTSBURGH United States}
 }
 
 @inbook{inbook,
-    author = {Zomer, Gerwin},
-    year = {2019},
-    month = {08},
-    pages = {575-592},
-    title = {Supply Chain Security},
-    isbn = {978-3-319-92446-5},
-    doi = {10.1007/978-3-319-92447-2_25}
+  author = {Zomer, Gerwin},
+  year   = {2019},
+  month  = {08},
+  pages  = {575-592},
+  title  = {Supply Chain Security},
+  isbn   = {978-3-319-92446-5},
+  doi    = {10.1007/978-3-319-92447-2_25}
 }
 
 @unknown{unknown,
-    author = {Chaudhary, Sunil},
-    year = {2021},
-    month = {05},
-    pages = {},
-    title = {Supply chain security recommendations 1}
+  author = {Chaudhary, Sunil},
+  year   = {2021},
+  month  = {05},
+  pages  = {},
+  title  = {Supply chain security recommendations 1}
 }
 
 @article{article,
-    author = {Ellison, Robert and Goodenough, John and Weinstock, Charles and Woody, Carol},
-    year = {2022},
-    month = {01},
-    pages = {},
-    title = {Evaluating and Mitigating Software Supply Chain Security Risks}
+  author = {Ellison, Robert and Goodenough, John and Weinstock, Charles and Woody, Carol},
+  year   = {2022},
+  month  = {01},
+  pages  = {},
+  title  = {Evaluating and Mitigating Software Supply Chain Security Risks}
 }
 
 @article{article,
-    author = {Hassija, Vikas and Chamola, Vinay and Gupta, Vatsal and Jain, Sarthak and Guizani, Nadra},
-    year = {2020},
-    month = {10},
-    pages = {},
-    title = {A Survey on Supply Chain Security: Application Areas, Security Threats, and Solution Architectures},
-    volume = {PP},
-    journal = {IEEE Internet of Things Journal},
-    doi = {10.1109/JIOT.2020.3025775}
+  author  = {Hassija, Vikas and Chamola, Vinay and Gupta, Vatsal and Jain, Sarthak and Guizani, Nadra},
+  year    = {2020},
+  month   = {10},
+  pages   = {},
+  title   = {A Survey on Supply Chain Security: Application Areas, Security Threats, and Solution Architectures},
+  volume  = {PP},
+  journal = {IEEE Internet of Things Journal},
+  doi     = {10.1109/JIOT.2020.3025775}
 }
 
 @article{article,
-    author = {Alsabbagh, Bilal and Kowalski, Stewart},
-    year = {2015},
-    month = {07},
-    pages = {30-39},
-    title = {A Socio-technical Framework for Threat Modeling a Software Supply Chain},
-    volume = {13},
-    journal = {IEEE Security & Privacy},
-    doi = {10.1109/MSP.2015.72}
+  author  = {Alsabbagh, Bilal and Kowalski, Stewart},
+  year    = {2015},
+  month   = {07},
+  pages   = {30-39},
+  title   = {A Socio-technical Framework for Threat Modeling a Software Supply Chain},
+  volume  = {13},
+  journal = {IEEE Security & Privacy},
+  doi     = {10.1109/MSP.2015.72}
 }
 
 @inproceedings{TorresArias2019intotoPF,
-    title={in-toto: Providing farm-to-table guarantees for bits and bytes},
-    author={Santiago Torres-Arias and Hammad Afzali and Trishank Karthik Kuppusamy and Reza Curtmola and Justin Cappos},
-    booktitle={USENIX Security Symposium},
-    year={2019}
+  title     = {in-toto: Providing farm-to-table guarantees for bits and bytes},
+  author    = {Santiago Torres-Arias and Hammad Afzali and Trishank Karthik Kuppusamy and Reza Curtmola and Justin Cappos},
+  booktitle = {USENIX Security Symposium},
+  year      = {2019}
 }
 
 @article{9473230,
-    author = {J. Viega and J. Michael},
-    journal = {Computer},
-    title = {Struggling With Supply-Chain Security},
-    year = {2021},
-    volume = {54},
-    number = {07},
-    issn = {1558-0814},
-    pages = {98-104},
-    keywords = {industries;government;risk management;computer security;supply chain management},
-    doi = {10.1109/MC.2021.3075412},
-    publisher = {IEEE Computer Society},
-    address = {Los Alamitos, CA, USA},
-    month = {jul}
+  author    = {J. Viega and J. Michael},
+  journal   = {Computer},
+  title     = {Struggling With Supply-Chain Security},
+  year      = {2021},
+  volume    = {54},
+  number    = {07},
+  issn      = {1558-0814},
+  pages     = {98-104},
+  keywords  = {industries;government;risk management;computer security;supply chain management},
+  doi       = {10.1109/MC.2021.3075412},
+  publisher = {IEEE Computer Society},
+  address   = {Los Alamitos, CA, USA},
+  month     = {jul}
+}
+
+@misc{mandiant_2020,
+  title     = {Highly Evasive Attacker Leverages SolarWinds Supply Chain to Compromise Multiple Global Victims With SUNBURST Backdoor},
+  url       = {https://www.mandiant.com/resources/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor},
+  journal   = {Mandiant},
+  publisher = {FireEye/Mandiant},
+  year      = {2020},
+  month     = {Dec}
 }
 ```
+
+## Part 0: The SolarWinds Attack
+
+- Summary
+  - On 13 December 2020, FireEye detected a large supply chain attack targeting SolarWinds Orion
+  - The actors behind the attack (tracked as UNC2452) gained access to data and control over both private and public institutions
+  - Trojanized updates were used to get access to SolarWinds Orion since as early as Spring 2020
+  - Result of the attack is lateral movement and data theft
+- Backdoor
+  - `SolarWinds.Orion.Core.BusinessLayer.dll` is a signed component of Orion which communicates with external servers using HTTP
+  - After laying dormant for about two weeks, it receives and executes commands ("jobs")
+  - Network traffic is masqueraded as the Orion Improvement Program protocol (telemetry)
+  - Reconnaissance is stored with legitimate data to make detection harder
+  - Backdoor is sandbox-aware using blocklists so that detection using anti-malware tools and forensics are harder
+- Job capabilities
+  - Transfer files
+  - Execute files
+  - Profile the system
+  - Reboot the system
+  - Disable (system) services
+- Method of delivery
+  - Trojanized updates were digitally signed using SolarWind's private keys
+  - Delivered file is a Windows Installer Patch file
+  - After installation, the host process loads the malicious DLL
+  - Attempts to resolve a subdomain of `avsvmcloud.com`, which will return a command and control domain through the `CNAME` record
+  - Traffic to command and control domain mimics the legitimate SolarWinds API
 
 ## Part 1: Overview (Risks in the Software Supply Chain)
 
