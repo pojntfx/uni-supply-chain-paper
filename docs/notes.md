@@ -121,6 +121,8 @@
 
 ## Part 1: Overview (Risks in the Software Supply Chain)
 
+- As the SolarWinds attack has shown, supply chain attacks on any step of the supply chain can lead to significant breaches
+- Let's take a look at the potentials vulnerabilities in a supply chain
 - Security is a lifecycle issue:
   - Mission thread
   - Threat analysis
@@ -184,6 +186,7 @@
 
 ## Part 2: Framework (Socio-technical Framework for Threat Modeling a Software Supply Chain)
 
+- Now that we've analyzed the risks associated with supply chains, let's take a look at how to model its vulnerabilites from a social and technical perspective
 - Software supply chains are similar to traditional supply chains
 - A supply chain is created by deploying and using a product directly or reproducing it as a new product in repetition
 - Traditional supply chains can have risks
@@ -235,6 +238,7 @@
 
 ## Part 3: Implementation (in-toto: Providing farm-to-table guarantees for bits and bytes)
 
+- Using this social and technical abstract, let us now take a look at a concrete implementation of a supply chain security system, in-toto
 - Examples of supply chain attacks
   - Version control systems: Linux kernel, Gentoo and Google
   - Build systems: Fedora, which allowed for signing backdoored version of security packages
@@ -307,6 +311,7 @@
 
 ## Part 4: Evaluation (in-toto: Providing farm-to-table guarantees for bits and bytes)
 
+- Finally, let's analyze the results that the in-toto maintainers provided following some initial usage
 - Debian rebuilders
   - Reproducible builds are bit-by-bit reproducible, so it is possible to build a package on a separate host and get the same hash on the result
   - A `apt-transport` for in-toto is used to provide attestations of the resulting builds using link metadata
