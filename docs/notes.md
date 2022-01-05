@@ -93,7 +93,7 @@
 }
 ```
 
-## Part 0: The SolarWinds Attack
+## Part 0: The SolarWinds Attack (Highly Evasive Attacker Leverages SolarWinds Supply Chain)
 
 - Summary
   - On 13 December 2020, FireEye detected a large supply chain attack targeting SolarWinds Orion
