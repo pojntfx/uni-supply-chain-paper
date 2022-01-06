@@ -4,50 +4,12 @@ date: "2022-01-06"
 subject: "The SolarWinds Attack and Farm-to-table Methods in the Development Process (Notes)"
 keywords: [supply chain, security, solarwinds, modeling, in-toto]
 subtitle: "Mitigating disasters through supply chain security"
-lang: "en"
+lang: en-US
 ---
 
 # The SolarWinds Attack and Farm-to-table Methods in the Development Process: Notes
 
 **Topic**: The "Solarwinds" attack and farm-to-table methods in the development process - Mitigating disasters through supply-chain security
-
-## Sources
-
-```bibtex
-@misc{mandiant_2020,
-  title     = {Highly Evasive Attacker Leverages SolarWinds Supply Chain to Compromise Multiple Global Victims With SUNBURST Backdoor},
-  url       = {https://www.mandiant.com/resources/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor},
-  journal   = {Mandiant},
-  publisher = {FireEye/Mandiant},
-  year      = {2020},
-  month     = {Dec}
-}
-
-@techreport{sherman2019risks,
-  title       = {Risks in the software supply chain},
-  author      = {Sherman, Mark},
-  year        = {2019},
-  institution = {CARNEGIE-MELLON UNIV PITTSBURGH PA PITTSBURGH United States}
-}
-
-@article{article,
-  author  = {Alsabbagh, Bilal and Kowalski, Stewart},
-  year    = {2015},
-  month   = {07},
-  pages   = {30-39},
-  title   = {A Socio-technical Framework for Threat Modeling a Software Supply Chain},
-  volume  = {13},
-  journal = {IEEE Security & Privacy},
-  doi     = {10.1109/MSP.2015.72}
-}
-
-@inproceedings{TorresArias2019intotoPF,
-  title     = {in-toto: Providing farm-to-table guarantees for bits and bytes},
-  author    = {Santiago Torres-Arias and Hammad Afzali and Trishank Karthik Kuppusamy and Reza Curtmola and Justin Cappos},
-  booktitle = {USENIX Security Symposium},
-  year      = {2019}
-}
-```
 
 ## Part 0: The SolarWinds Attack (Highly Evasive Attacker Leverages SolarWinds Supply Chain)
 
