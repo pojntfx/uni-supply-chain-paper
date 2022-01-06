@@ -8,9 +8,10 @@ Felicitas Pojtinger
 -   3 The SolarWinds Attack
 -   4 Overview of Supply Chain Security
 -   5 Modeling the Supply Chain
--   6 “in-toto”, a Framework for Supply Chain Security
+-   6 in-toto, a Framework for Supply Chain Security
 -   7 Results
 -   8 Summary and Conclusions
+-   References
 
 Introduction
 
@@ -32,15 +33,15 @@ Related Work
 
 FireEye provides the initial report on the SolarWinds Attack, detailing
 the attack’s architecture, resulting vulnerabilities and information
-about the attackers. Sherman and Mark give an overview of the past and
-presents risks in the supply chain and make general recommendations on
-means of preventing them. Alsabbagh, Bilal, Kowalski and Stewart present
-a framework to model a software supply chain from a social and technical
-perspective, with a focus on highlighting ways to find threats in
-existing chains. Torres-Arias, Afzali, Kuppusamy, Curtmola and Cappos
-introduce a concrete implementation of a system with a wholistic
+about the attackers[1]. Sherman and Mark give an overview of the past
+and presents risks in the supply chain and make general recommendations
+on means of preventing them[2]. Alsabbagh, Bilal, Kowalski and Stewart
+present a framework to model a software supply chain from a social and
+technical perspective, with a focus on highlighting ways to find threats
+in existing chains[3]. Torres-Arias, Afzali, Kuppusamy, Curtmola and
+Cappos introduce a concrete implementation of a system with a wholistic
 approach to supply chain security, as well as an analysis of its level
-of protection against historical attacks.
+of protection against historical attacks[4].
 
 The SolarWinds Attack
 
@@ -63,7 +64,7 @@ Patch file, which was distributed using the existing update
 infrastructure and, after the update process, loaded by the host
 process. Signature checks did not fail due to the key compromise.
 Attacks were then able to connect to command and control infrastructure
-by resolving a subdomain’s CNAME record.
+by resolving a subdomain’s CNAME record[1].
 
 Overview of Supply Chain Security
 
@@ -123,7 +124,7 @@ external code is to establish a supplier. This can for example be a
 third party focused on libre software (i.e. RedHat or SUSE), which
 allows for an evaluation similar to that of proprietary software based
 on supplier capability, product security, product distribution and
-operation product control.
+operation product control[2].
 
 Modeling the Supply Chain
 
@@ -236,9 +237,9 @@ the technical countermeasure might be to use digital signatures to
 verify the authenticity of the delivered product. To prevent injection
 of source code during software distribution, a social solution could be
 to use a third-party escrow, while the technical countermeasure could be
-to use a VPN or TLS-secured distribution channels.
+to use a VPN or TLS-secured distribution channels[3].
 
-“in-toto”, a Framework for Supply Chain Security
+in-toto, a Framework for Supply Chain Security
 
 in-toto provides a concrete technical implementation of a supply chain
 security system. It tries to protect against supply chain attacks based
@@ -429,7 +430,7 @@ users, in-toto scales linearly with the number of files, not file size.
 Metadata size amounts to ~44% of package size, but can escalate if many
 small files are included. Verification layout has been noted to be very
 low, taking only ~0.6s typically on an i7-6500U-based system with 8 GB
-of RAM.
+of RAM[4].
 
 Summary and Conclusions
 
@@ -459,3 +460,21 @@ integration of secure update systems with end-to-end verification as in
 the Python deployment provides further protection (against 100% of the
 surveyed historical supply chain attacks in this case), which highlights
 that further improvement opportunities in supply chain security exist.
+
+References
+
+[1] FireEye, “Highly evasive attacker leverages SolarWinds supply chain
+to compromise multiple global victims with SUNBURST backdoor,” Mandiant.
+Dec. 2020.Available:
+https://www.mandiant.com/resources/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor
+
+[2] M. Sherman, “Risks in the software supply chain,” CARNEGIE-MELLON
+UNIV PITTSBURGH PA PITTSBURGH United States, 2019.
+
+[3] B. Alsabbagh and S. Kowalski, “A socio-technical framework for
+threat modeling a software supply chain,” IEEE Security & Privacy, vol.
+13, pp. 30–39, Jul. 2015, doi: 10.1109/MSP.2015.72.
+
+[4] S. Torres-Arias, H. Afzali, T. K. Kuppusamy, R. Curtmola, and J.
+Cappos, “In-toto: Providing farm-to-table guarantees for bits and
+bytes,” 2019.
