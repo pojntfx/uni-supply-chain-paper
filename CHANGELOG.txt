@@ -1,3 +1,9 @@
+commit 55fb837ed8caa183fafe9043b9407c59aa88378b
+Author: Felicitas Pojtinger <felicitas@pojtinger.com>
+Date:   Thu Jan 6 23:48:50 2022 +0100
+
+    feat: Add author's affiliation
+
 commit c599238ade12e339554011ff5aa17118c15d3e7f
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 23:35:01 2022 +0100
