@@ -1,4 +1,13 @@
-# Notes
+---
+author: [Felicitas Pojtinger]
+date: "2022-01-06"
+subject: "The SolarWinds Attack and Farm-to-table Methods in the Development Process (Notes)"
+keywords: [supply chain, security, solarwinds, modeling, in-toto]
+subtitle: "Mitigating disasters through supply chain security"
+lang: "en"
+---
+
+# The SolarWinds Attack and Farm-to-table Methods in the Development Process: Notes
 
 **Topic**: The "Solarwinds" attack and farm-to-table methods in the development process - Mitigating disasters through supply-chain security
 
