@@ -6,3 +6,6 @@ Heartbleed
 Shellshock
 Downstreams
 RedHat
+updaters
+in-toto
+CVEs
