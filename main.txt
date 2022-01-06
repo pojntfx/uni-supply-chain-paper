@@ -1,6 +1,6 @@
 The SolarWinds Attack and Farm-to-table Methods in the Development
 Process
-Felix Pojtinger
+Felix Pojtinger (Stuttgart Media University)
 2022-01-06
 
 -   1 Introduction
