@@ -1,4 +1,14 @@
-# Body
+# The SolarWinds Attack and Farm-to-table Methods in the Development Process
+
+> Mitigating disasters through supply chain security
+
+## Abstract
+
+While supply chain attacks have drawn public attention recently due to the high-profile SolarWinds attack, research around the subject is still new due to supply chains of software being fairly simplistic until recently. As modern supply chains are complex sociotechnical systems, fundamental concepts and the current state of supply chain security will be introduced. Special focus is put on the relation of social and technical threat vectors during the modelling of the supply chain, and a technical implementation, in-toto, is introduced as a reference of a supply chain security system. By examining its countermeasures for historical supply chain attacks, in-toto's effectiveness is measured, resulting in protection against almost all historical supply chain attacks.
+
+## Introduction
+
+On 13 December 2020, FireEye, a US-based cybersecurity company, detected a large supply chain attack directed at customers of SolarWinds using their Orion monitoring and management solution. The actors of the attack, which are now presumed to be of Russian origin, were able to gain access to data of several high-profile private and public institutions. While the attack was detected and made public by late 2020, it has been active since at least Spring 2020, resulting in widespread lateral movement and data theft. While high-profile attacks against institutions have become more frequent in recent years, the sophistication and threat vector of this attack has shown the need for more advanced modelling techniques and security measures for supply-chain security, which this paper tries to introduce the reader too.
 
 ## Related Work
 
@@ -6,9 +16,7 @@ FireEye provides the initial report on the SolarWinds Attack, detailing the atta
 
 ## The SolarWinds Attack
 
-On 13 December 2020, FireEye, a US-based cybersecurity company, detected a large supply chain attack directed at customers of SolarWinds using their Orion monitoring and management solution. The actors of the attack, which are now presumed to be of Russian origin, were able to gain access to data of several high-profile private and public institutions. While the attack was detected and made public by late 2020, it has been active since at least Spring 2020, resulting in widespread lateral movement and data theft.
-
-The backdoor was built into a digitally signed component of the Orion platform (`SolarWinds.Orion.Core.BusinessLayer.dll`) which communicates with external servers using HTTP. After an initial dormant period of up to two weeks, the malicious component was able to receive commands such as transferring and executing files, profiling a system, disabling services and issuing reboots from command and control infrastructure. Traffic was obfuscated as by masquerading as telemetry communications similar in structure to the Orion Improvement Program. In addition to these obfuscation methods, the malware is sandbox-aware to evade detection by antivirus tools and increase the effort required to do forensics.
+In the case of the SolarWinds attack, the backdoor was built into a digitally signed component of the Orion platform (`SolarWinds.Orion.Core.BusinessLayer.dll`) which communicates with external servers using HTTP. After an initial dormant period of up to two weeks, the malicious component was able to receive commands such as transferring and executing files, profiling a system, disabling services and issuing reboots from command and control infrastructure. Traffic was obfuscated as by masquerading as telemetry communications similar in structure to the Orion Improvement Program. In addition to these obfuscation methods, the malware is sandbox-aware to evade detection by antivirus tools and increase the effort required to do forensics.
 
 In order to deliver the malware to users of SolarWinds Orion, the supply chain was attacked. The attackers were able to compromise SolarWinds' keys and digitally sign a trojanized version of a Windows Installer Patch file, which was distributed using the existing update infrastructure and, after the update process, loaded by the host process. Signature checks did not fail due to the key compromise. Attacks were then able to connect to command and control infrastructure by resolving a subdomain's CNAME record.
 
@@ -56,7 +64,7 @@ Without a key compromise, in-toto protects against a lot of attacks vectors, as 
 
 In practice, it should be noted that users might respond differently to chain validation errors depending on context. If a user is for example testing out a package in a testing VM, they might choose to ignore the error, while a user deploying software to a production system will probably report the validation failure and not proceed with installations. Actions taken in response to link metadata validation are thus suspected to be similar to those taken in response to package signature validation failures today.
 
-## Evaluation of Supply Chain Security Measures
+## Results
 
 When evaluating the effectiveness of supply chain security systems against historical supply chain attacks, it is important to keep the context of their application in mind. Three applications (a Linux distribution, cloud-native deployment and a language-specific package manager) have been analyzed, which each lead to different levels of security.
 
@@ -68,6 +76,6 @@ The highest level of protection was recorded for the language-specific (Python) 
 
 Storage overhead of in-toto stays at manageable levels; in case of the Python application, in-toto accounted for a $~19%$ increase in repository size. While this level is still manageable, it should be noted that i.e. TUF is able to keep its metadata about $1/4$ of this size; the overhead is primarily due to the data being stored as part of the pipeline and large signatures due to safe key lengths adding to the file size, which could be optimized. In terms of network overhead, which is an impact of importance when distributing software updates to many users, in-toto scales linearly with the number of files, not file size. Metadata size amounts to $~44%$ of package size, but can escalate if many small files are included. Verification layout has been noted to be very low, taking only $~0.6s$ typically on an i7-6500U-based system with 8 GB of RAM.
 
-## Conclusion
+## Summary and Conclusions
 
 Assessment of protection against previous breaches was done in three categories: Control of infrastructure but not functionary keys, control of parts of the infrastructure or keys of a specific functionary, and control of the entire supply chain by compromising the project owner infrastructure, including keys. In tests, the majority of surveyed attacks ($23/30$) did not include a key compromise. In this case, in-toto's client inspection would have detected the tampering. The Keydnap attack, in which an Apple developer certificate was stolen and used to sign a malicious software package, inspection with in-toto would have detected the attack due to an unauthorized functionary signing the link metadata. In another attack, the developer's SSH key was used to sign a malicious Python package; this would have been prevented with in-toto as the files extracted from the malicious package would not match the source coded recorded in the first step of the chain in case of the Python package manager implementation of in-toto. The CCleaner and RedHat attacks would not have been effective against both the reproducible builds/Debian and Python deployments of in-toto due to multiple hosts building the artifacts, with only the cloud-native deployment lacking a threshold mechanism. In total, both the cloud-native (with 83% prevention as a result of in-toto usage) and reproducible builds/Debian deployments (with 90% prevention) of in-toto would have prevented most historical supply chain attacks. The integration of secure update systems with end-to-end verification as in the Python deployment provides further protection (against 100% of the surveyed historical supply chain attacks in this case), which highlights that further improvement opportunities in supply chain security exist.
