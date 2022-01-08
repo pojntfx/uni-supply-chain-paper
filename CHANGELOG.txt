@@ -1,3 +1,9 @@
+commit 2918cf0385678dc12f76f688f376f59945a3f5ae
+Author: Felicitas Pojtinger <felicitas@pojtinger.com>
+Date:   Sat Jan 8 02:37:54 2022 +0100
+
+    refactor: Add citations of individual attacks
+
 commit 55fb837ed8caa183fafe9043b9407c59aa88378b
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 23:48:50 2022 +0100
