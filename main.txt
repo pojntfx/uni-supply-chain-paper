@@ -18,7 +18,7 @@ Introduction
 On 13 December 2020, FireEye, a US-based cybersecurity company, detected
 a large supply chain attack directed at customers of SolarWinds using
 their Orion monitoring and management solution. The actors of the
-attack, which are now presumed to be of Russian origin, were able to
+attack, which are now believed to be of Russian origin[1], were able to
 gain access to data of several high-profile private and public
 institutions. While the attack was detected and made public by late
 2020, it has been active since at least Spring 2020, resulting in
@@ -33,15 +33,15 @@ Related Work
 
 FireEye provides the initial report on the SolarWinds Attack, detailing
 the attack’s architecture, resulting vulnerabilities and information
-about the attackers[1]. Sherman and Mark give an overview of the past
-and presents risks in the supply chain and make general recommendations
-on means of preventing them[2]. Alsabbagh, Bilal, Kowalski and Stewart
-present a framework to model a software supply chain from a social and
-technical perspective, with a focus on highlighting ways to find threats
-in existing chains[3]. Torres-Arias, Afzali, Kuppusamy, Curtmola and
-Cappos introduce a concrete implementation of a system with a wholistic
-approach to supply chain security, as well as an analysis of its level
-of protection against historical attacks[4].
+about the attackers[2]. Sherman gives an overview of the past and
+presents risks in the supply chain and make general recommendations on
+means of preventing them[3]. Al Sabbagh and Kowalski present a framework
+to model a software supply chain from a social and technical
+perspective, with a focus on highlighting ways to find threats in
+existing chains[4]. Torres-Arias, Afzali, Kuppusamy, Curtmola and Cappos
+introduce a concrete implementation of a system with a holistic approach
+to supply chain security, as well as an analysis of its level of
+protection against historical attacks[5].
 
 The SolarWinds Attack
 
@@ -64,7 +64,7 @@ Patch file, which was distributed using the existing update
 infrastructure and, after the update process, loaded by the host
 process. Signature checks did not fail due to the key compromise.
 Attacks were then able to connect to command and control infrastructure
-by resolving a subdomain’s CNAME record[1].
+by resolving a subdomain’s CNAME record[2].
 
 Overview of Supply Chain Security
 
@@ -83,15 +83,15 @@ of existing software, which leads to very long supply chains. A typical
 “Web 2.0” application could for example include an app server, HTTP
 server, XML parser, database client, C libraries & compiler, all of
 which also have their own supply chains. In recent years, in addition to
-toolchain corruption (such as in the case of XCodeGhost[5]) becoming
+toolchain corruption (such as in the case of XCodeGhost[6]) becoming
 more and more of an issue, both popular proprietary software and libre
 software have shown vulnerabilities affecting software released over
 multiple years (such as for example the “Heartbleed” or “Shellshock”
 vulnerabilities). In addition to libraries impacting a delivered
 product, the usage of generated data from tools such as TensorFlow or
-PyTorch, as well as the use publically available or scraped data such as
-from Data.gov and Google Open Images leads to new attack vectors on the
-software supply chain.
+PyTorch, as well as the use of publically available or scraped data such
+as from Data.gov and Google’s “Open Images Dataset” leads to new attack
+vectors on the software supply chain.
 
 Due to multiple high-profile attacks, the interest in means to reduce
 the risk factors of software supply chains has risen. Simple ways to
@@ -124,7 +124,7 @@ external code is to establish a supplier. This can for example be a
 third party focused on libre software (i.e. RedHat or SUSE), which
 allows for an evaluation similar to that of proprietary software based
 on supplier capability, product security, product distribution and
-operation product control[2].
+operation product control[3].
 
 Modeling the Supply Chain
 
@@ -137,25 +137,25 @@ of these risks also apply to software supply chains and, just like they
 are in traditional supply chains, must be counteracted using risk
 management, for which a threat model is a prerequisite. Current
 practices mostly follow on the classical CIA triad (confidentiality,
-integrity, availability), but for software supply chains, the security
-objectives of confidentiality, (data) integrity, source authenticity,
-availability and non-repudiation are the most important. While
-organizations such as NIST publish best practices[6], concrete models of
-software supply chains are still a rather new subject.
+integrity, availability), while software supply chains also require the
+security objectives of confidentiality, (data) integrity, source
+authenticity, availability and non-repudiation. While organizations such
+as NIST publish best practices[7], concrete models of software supply
+chains are still a rather new subject.
 
 This is in part due to software supply chains requiring the modeling of
 social and technical behavior in order to model the system and threats
-to it. Unlike many other security-related models, these domains can’t be
-viewed as purely technical or social, but only as a combination of the
-two. The basis of modeling the system could for example be ISO 27005[7],
-which defines a thread as the potential cause of an incident that might
-result in harm to systems and organizations. The resulting model should
-express and capture as many threats as necessary and differentiate
-between actual threats and potential threats, where the former fulfills
-the requirements of intention, capability and opportunities, while the
-latter might lack one or multiple of the three. The detection of
-potential threats by the model however is important, as they can
-potentially be prevented by acting early.
+to it. Unlike many other security-related models, these domains can not
+be viewed as purely technical or social, but only as a combination of
+the two. The basis of modeling the system could for example be ISO
+27005[8], which defines a thread as the potential cause of an incident
+that might result in harm to systems and organizations. The resulting
+model should express and capture as many threats as necessary and
+differentiate between actual threats and potential threats, where the
+former fulfills the requirements of intention, capability and
+opportunities, while the latter might lack one or multiple of the three.
+The detection of potential threats by the model however is important, as
+they can potentially be prevented by acting early.
 
 Vulnerabilities in the supply chain can be found by analyzing the
 relations of the integrated elements, which each compose a threat in the
@@ -188,9 +188,10 @@ chains and enforcement of measures not at the boundaries of their
 products and trust, but also based on similarity with one’s own measures
 on each layer. Comparing the different layers of each supplier’s
 sociotechnical systems allows for creating an integrated chain of
-(dis-)trust, where for example the negation of the usefulness of digital
-signatures for the compiler binaries by compiling unsigned source code
-or not checking the provided binaries’ signatures is detectable.
+(dis-)trust, where for example the negation of the effectiveness of
+digital signatures for the compiler binaries by compiling unsigned
+source code or not checking the provided binaries’ signatures is
+detectable.
 
 When analyzing a supply chain, multiple distinct processes can be found:
 Supplier sourcing, software development and testing, software packaging
@@ -213,10 +214,10 @@ which might exist due to human error or behavioral patterns (intentional
 or not), the security by consensus model can be used. A supplier can for
 example deny having sent a product, leading to a non-repudiation issue.
 Ordered software products also might not arrive in time due to QA
-problems, leading to an availability issue; also, secrets of outsourced
-software might be disclosed by employees (such as hard-coded keys or
-seed values) or the user might make configuration mistakes, such as
-choosing very short key lengths, if the user guide (which is being
+problems, leading to an availability issue; additionally, secrets of
+outsourced software might be disclosed by employees (such as hard-coded
+keys or seed values) or the user might make configuration mistakes, such
+as choosing very short key lengths, if the user guide (which is being
 distributed as part of the product through the supply chain) has been
 tampered with.
 
@@ -237,7 +238,7 @@ the technical countermeasure might be to use digital signatures to
 verify the authenticity of the delivered product. To prevent injection
 of source code during software distribution, a social solution could be
 to use a third-party escrow, while the technical countermeasure could be
-to use a VPN or TLS-secured distribution channels[3].
+to use a VPN or TLS-secured distribution channels[4].
 
 in-toto, a Framework for Supply Chain Security
 
@@ -261,7 +262,7 @@ without the changes being noticed; in other words, there is no way to
 verify that the correct steps were followed in order or that the
 artifacts between the individual steps were not tampered with. The
 problem with the lack of such checks was made apparent by attacks such
-as the Linux Mint breach[8], where a compromised web server enabled
+as the Linux Mint breach[9], where a compromised web server enabled
 redirection of installation image download links, resulting in the
 distro’s internal signature checks being negated, even though no key
 compromise took place. Furthermore, despite fuzzing and static code
@@ -272,7 +273,7 @@ thus shows that solutions designed to secure individual supply chain
 steps cannot guarantee the security of the supply chain as a whole, and
 further integration is required to improve it.
 
-in-toto provides such a wholistic approach and tries to enforce the
+in-toto provides such a holistic approach and tries to enforce the
 integrity of the entire supply chain. It requires the declaration and
 signing of a layout defining how and by whom which steps in the
 development and release process are to be carried out, thus allowing
@@ -327,8 +328,8 @@ vulnerable elements or providing a counterfeit version of the delivered
 product to users. in-toto managed supply chains can thus guarantee
 security goals such as supply chain layout integrity (all steps have
 been performed in the correct order), artifact flow integrity (artifacts
-can’t be changed in between steps), step authentication (steps can only
-be performed by the intended parties), implementation transparency
+can not be changed in between steps), step authentication (steps can
+only be performed by the intended parties), implementation transparency
 (existing supply chains need not be changed) and graceful degradation of
 security properties, so that in the event of key compromise, not all
 security properties are lost.
@@ -430,7 +431,7 @@ users, in-toto scales linearly with the number of files, not file size.
 Metadata size amounts to ~44% of package size, but can escalate if many
 small files are included. Verification layout has been noted to be very
 low, taking only ~0.6s typically on an i7-6500U-based system with 8 GB
-of RAM[4].
+of RAM[5].
 
 Summary and Conclusions
 
@@ -463,33 +464,37 @@ that further improvement opportunities in supply chain security exist.
 
 References
 
-[1] FireEye, “Highly evasive attacker leverages SolarWinds supply chain
+[1] K. Paul, “What you need to know about the biggest hack of the US
+government in years,” The Guardian. Dec. 2020.Available:
+https://www.theguardian.com/technology/2020/dec/15/orion-hack-solar-winds-explained-us-treasury-commerce-department
+
+[2] FireEye, “Highly evasive attacker leverages SolarWinds supply chain
 to compromise multiple global victims with SUNBURST backdoor.” Mandiant,
 Dec. 2020.Available:
 https://www.mandiant.com/resources/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor
 
-[2] M. Sherman, “Risks in the software supply chain,” CARNEGIE-MELLON
+[3] M. Sherman, “Risks in the software supply chain,” CARNEGIE-MELLON
 UNIV PITTSBURGH PA PITTSBURGH United States, 2019.
 
-[3] B. Alsabbagh and S. Kowalski, “A socio-technical framework for
+[4] B. Alsabbagh and S. Kowalski, “A socio-technical framework for
 threat modeling a software supply chain,” IEEE Security & Privacy, vol.
 13, pp. 30–39, Jul. 2015, doi: 10.1109/MSP.2015.72.
 
-[4] S. Torres-Arias, H. Afzali, T. K. Kuppusamy, R. Curtmola, and J.
+[5] S. Torres-Arias, H. Afzali, T. K. Kuppusamy, R. Curtmola, and J.
 Cappos, “In-toto: Providing farm-to-table guarantees for bits and
 bytes,” 2019.
 
-[5] C. Xiao, “Novel malware XcodeGhost modifies xcode, infects apple iOS
+[6] C. Xiao, “Novel malware XcodeGhost modifies xcode, infects apple iOS
 apps and hits app store.” Palo Alto Networks, Sep. 2015.Available:
 https://unit42.paloaltonetworks.com/novel-malware-xcodeghost-modifies-xcode-infects-apple-ios-apps-and-hits-app-store/
 
-[6] J. Boyens, A. Smith, N. Bartol, K. Winkler, A. Holbrook, and M.
+[7] J. Boyens, A. Smith, N. Bartol, K. Winkler, A. Holbrook, and M.
 Fallon, “Cyber supply chain risk management practices for systems and
 organizations,” National Institute of Standards; Technology, 2021.
 
-[7] “Information technology - security techniques - information security
+[8] “Information technology - security techniques - information security
 risk management.” ISO, Geneva, Switzerland, 2018.
 
-[8] Z. Whittaker, “Hacker explains how he put "backdoor" in hundreds of
+[9] Z. Whittaker, “Hacker explains how he put "backdoor" in hundreds of
 linux mint downloads,” ZDNet. Feb. 2016.Available:
 https://www.zdnet.com/article/hacker-hundreds-were-tricked-into-installing-linux-mint-backdoor/
