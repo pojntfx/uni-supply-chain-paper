@@ -83,8 +83,8 @@ of existing software, which leads to very long supply chains. A typical
 “Web 2.0” application could for example include an app server, HTTP
 server, XML parser, database client, C libraries & compiler, all of
 which also have their own supply chains. In recent years, in addition to
-toolchain corruption (such as in the case of XCodeGhost) becoming more
-and more of an issue, both popular proprietary software and libre
+toolchain corruption (such as in the case of XCodeGhost[5]) becoming
+more and more of an issue, both popular proprietary software and libre
 software have shown vulnerabilities affecting software released over
 multiple years (such as for example the “Heartbleed” or “Shellshock”
 vulnerabilities). In addition to libraries impacting a delivered
@@ -140,14 +140,14 @@ practices mostly follow on the classical CIA triad (confidentiality,
 integrity, availability), but for software supply chains, the security
 objectives of confidentiality, (data) integrity, source authenticity,
 availability and non-repudiation are the most important. While
-organizations such as NIST publish best practices, concrete models of
+organizations such as NIST publish best practices[6], concrete models of
 software supply chains are still a rather new subject.
 
 This is in part due to software supply chains requiring the modeling of
 social and technical behavior in order to model the system and threats
 to it. Unlike many other security-related models, these domains can’t be
 viewed as purely technical or social, but only as a combination of the
-two. The basis of modeling the system could for example be ISO 27005,
+two. The basis of modeling the system could for example be ISO 27005[7],
 which defines a thread as the potential cause of an incident that might
 result in harm to systems and organizations. The resulting model should
 express and capture as many threats as necessary and differentiate
@@ -261,7 +261,7 @@ without the changes being noticed; in other words, there is no way to
 verify that the correct steps were followed in order or that the
 artifacts between the individual steps were not tampered with. The
 problem with the lack of such checks was made apparent by attacks such
-as the Linux Mint breach, where a compromised web server enabled
+as the Linux Mint breach[8], where a compromised web server enabled
 redirection of installation image download links, resulting in the
 distro’s internal signature checks being negated, even though no key
 compromise took place. Furthermore, despite fuzzing and static code
@@ -464,7 +464,7 @@ that further improvement opportunities in supply chain security exist.
 References
 
 [1] FireEye, “Highly evasive attacker leverages SolarWinds supply chain
-to compromise multiple global victims with SUNBURST backdoor,” Mandiant.
+to compromise multiple global victims with SUNBURST backdoor.” Mandiant,
 Dec. 2020.Available:
 https://www.mandiant.com/resources/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor
 
@@ -478,3 +478,18 @@ threat modeling a software supply chain,” IEEE Security & Privacy, vol.
 [4] S. Torres-Arias, H. Afzali, T. K. Kuppusamy, R. Curtmola, and J.
 Cappos, “In-toto: Providing farm-to-table guarantees for bits and
 bytes,” 2019.
+
+[5] C. Xiao, “Novel malware XcodeGhost modifies xcode, infects apple iOS
+apps and hits app store.” Palo Alto Networks, Sep. 2015.Available:
+https://unit42.paloaltonetworks.com/novel-malware-xcodeghost-modifies-xcode-infects-apple-ios-apps-and-hits-app-store/
+
+[6] J. Boyens, A. Smith, N. Bartol, K. Winkler, A. Holbrook, and M.
+Fallon, “Cyber supply chain risk management practices for systems and
+organizations,” National Institute of Standards; Technology, 2021.
+
+[7] “Information technology - security techniques - information security
+risk management.” ISO, Geneva, Switzerland, 2018.
+
+[8] Z. Whittaker, “Hacker explains how he put "backdoor" in hundreds of
+linux mint downloads,” ZDNet. Feb. 2016.Available:
+https://www.zdnet.com/article/hacker-hundreds-were-tricked-into-installing-linux-mint-backdoor/
