@@ -1,3 +1,9 @@
+commit 33d7fbf564bccff0e7911906a423487c8deb12ab
+Author: Felicitas Pojtinger <felicitas@pojtinger.com>
+Date:   Sat Jan 8 18:16:13 2022 +0100
+
+    refactor: Fix typos and add citation on origin of SolarWinds attackers
+
 commit ce52460aa7edb522c7f0fad8c218574210630e75
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sat Jan 8 02:48:18 2022 +0100
