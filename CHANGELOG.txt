@@ -1,3 +1,9 @@
+commit ce52460aa7edb522c7f0fad8c218574210630e75
+Author: Felicitas Pojtinger <felicitas@pojtinger.com>
+Date:   Sat Jan 8 02:48:18 2022 +0100
+
+    feat: Add citation file
+
 commit 2918cf0385678dc12f76f688f376f59945a3f5ae
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sat Jan 8 02:37:54 2022 +0100
