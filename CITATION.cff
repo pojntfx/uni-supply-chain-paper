@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this paper in your work, please cite it as below."
+authors:
+  - family-names: "Pojtinger"
+    given-names: "Felicitas"
+title: "The SolarWinds Attack and Farm-to-table Methods in the Development Process"
+version: 1.0.0
+date-released: "2022-01-08"
+url: "https://github.com/pojntfx/uni-supply-chain-paper"
