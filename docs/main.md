@@ -1,5 +1,5 @@
 ---
-author: [Felix Pojtinger (Stuttgart Media University)]
+author: [Felicitas Pojtinger (Stuttgart Media University)]
 date: "2022-01-08"
 subject: "The SolarWinds Attack and Farm-to-table Methods in the Development Process"
 keywords: [supply chain, security, solarwinds, modeling, in-toto]

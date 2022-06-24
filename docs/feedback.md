@@ -1,5 +1,5 @@
 ---
-author: [Felix Pojtinger]
+author: [Felicitas Pojtinger]
 date: "2022-02-19"
 subject: "The SolarWinds Attack and Farm-to-table Methods in the Development Process (Review)"
 keywords: [supply chain, security, solarwinds, modeling, in-toto]
