@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Felicitas Pojtinger" />
   <meta name="dcterms.date" content="2022-01-06" />
-  <meta name="keywords" content="supply chain, security, solarwinds, modeling, in-toto" />
+  <meta name="keywords" content="supply
+chain, security, solarwinds, modeling, in-toto" />
   <title>The SolarWinds Attack and Farm-to-table Methods in the Development Process: Notes</title>
   <style>
     html {
@@ -24,7 +25,7 @@
       padding-top: 50px;
       padding-bottom: 50px;
       hyphens: auto;
-      word-wrap: break-word;
+      overflow-wrap: break-word;
       text-rendering: optimizeLegibility;
       font-kerning: normal;
     }
@@ -32,6 +33,9 @@
       body {
         font-size: 0.9em;
         padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
       }
     }
     @media print {
@@ -95,6 +99,7 @@
     pre code {
       padding: 0;
       overflow: visible;
+      overflow-wrap: normal;
     }
     .sourceCode {
      background-color: transparent;
@@ -136,6 +141,12 @@
     #TOC li {
       list-style: none;
     }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
     #TOC a:not(:hover) {
       text-decoration: none;
     }
@@ -146,44 +157,61 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">The SolarWinds Attack and Farm-to-table Methods in the Development Process: Notes</h1>
-<p class="subtitle">Mitigating disasters through supply chain security</p>
+<h1 class="title">The SolarWinds Attack and Farm-to-table Methods in the
+Development Process: Notes</h1>
+<p class="subtitle">Mitigating disasters through supply chain
+security</p>
 <p class="author">Felicitas Pojtinger</p>
 <p class="date">2022-01-06</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#part-0-the-solarwinds-attack-highly-evasive-attacker-leverages-solarwinds-supply-chain"><span class="toc-section-number">1.1</span> Part 0: The SolarWinds Attack (Highly Evasive Attacker Leverages SolarWinds Supply Chain)</a></li>
-<li><a href="#part-1-overview-risks-in-the-software-supply-chain"><span class="toc-section-number">1.2</span> Part 1: Overview (Risks in the Software Supply Chain)</a></li>
-<li><a href="#part-2-framework-socio-technical-framework-for-threat-modeling-a-software-supply-chain"><span class="toc-section-number">1.3</span> Part 2: Framework (Socio-technical Framework for Threat Modeling a Software Supply Chain)</a></li>
-<li><a href="#part-3-implementation-in-toto-providing-farm-to-table-guarantees-for-bits-and-bytes"><span class="toc-section-number">1.4</span> Part 3: Implementation (in-toto: Providing farm-to-table guarantees for bits and bytes)</a></li>
-<li><a href="#part-4-evaluation-in-toto-providing-farm-to-table-guarantees-for-bits-and-bytes"><span class="toc-section-number">1.5</span> Part 4: Evaluation (in-toto: Providing farm-to-table guarantees for bits and bytes)</a></li>
+<li><a href="#part-0-the-solarwinds-attack-highly-evasive-attacker-leverages-solarwinds-supply-chain"><span class="toc-section-number">1.1</span> Part 0: The SolarWinds Attack
+(Highly Evasive Attacker Leverages SolarWinds Supply Chain)</a></li>
+<li><a href="#part-1-overview-risks-in-the-software-supply-chain"><span class="toc-section-number">1.2</span> Part 1: Overview (Risks in the
+Software Supply Chain)</a></li>
+<li><a href="#part-2-framework-socio-technical-framework-for-threat-modeling-a-software-supply-chain"><span class="toc-section-number">1.3</span> Part 2: Framework (Socio-technical
+Framework for Threat Modeling a Software Supply Chain)</a></li>
+<li><a href="#part-3-implementation-in-toto-providing-farm-to-table-guarantees-for-bits-and-bytes"><span class="toc-section-number">1.4</span> Part 3: Implementation (in-toto:
+Providing farm-to-table guarantees for bits and bytes)</a></li>
+<li><a href="#part-4-evaluation-in-toto-providing-farm-to-table-guarantees-for-bits-and-bytes"><span class="toc-section-number">1.5</span> Part 4: Evaluation (in-toto:
+Providing farm-to-table guarantees for bits and bytes)</a></li>
 </ul>
 </nav>
-<p><strong>Topic</strong>: The “Solarwinds” attack and farm-to-table methods in the development process - Mitigating disasters through supply-chain security</p>
+<p><strong>Topic</strong>: The “Solarwinds” attack and farm-to-table
+methods in the development process - Mitigating disasters through
+supply-chain security</p>
 <section id="part-0-the-solarwinds-attack-highly-evasive-attacker-leverages-solarwinds-supply-chain" data-number="0.1">
-<h2 data-number="1.1"><span class="header-section-number">1.1</span> Part 0: The SolarWinds Attack (Highly Evasive Attacker Leverages SolarWinds Supply Chain)</h2>
+<h2 data-number="1.1"><span class="header-section-number">1.1</span>
+Part 0: The SolarWinds Attack (Highly Evasive Attacker Leverages
+SolarWinds Supply Chain)</h2>
 <ul>
 <li>Summary
 <ul>
-<li>On 13 December 2020, FireEye detected a large supply chain attack targeting SolarWinds Orion</li>
-<li>The actors behind the attack (tracked as UNC2452) gained access to data and control over both private and public institutions</li>
-<li>Trojanized updates were used to get access to SolarWinds Orion since as early as Spring 2020</li>
+<li>On 13 December 2020, FireEye detected a large supply chain attack
+targeting SolarWinds Orion</li>
+<li>The actors behind the attack (tracked as UNC2452) gained access to
+data and control over both private and public institutions</li>
+<li>Trojanized updates were used to get access to SolarWinds Orion since
+as early as Spring 2020</li>
 <li>Result of the attack is lateral movement and data theft</li>
 </ul></li>
 <li>Backdoor
 <ul>
-<li><code>SolarWinds.Orion.Core.BusinessLayer.dll</code> is a signed component of Orion which communicates with external servers using HTTP</li>
-<li>After laying dormant for about two weeks, it receives and executes commands (“jobs”)</li>
-<li>Network traffic is masqueraded as the Orion Improvement Program protocol (telemetry)</li>
-<li>Reconnaissance is stored with legitimate data to make detection harder</li>
-<li>Backdoor is sandbox-aware using blocklists so that detection using anti-malware tools and forensics are harder</li>
+<li><code>SolarWinds.Orion.Core.BusinessLayer.dll</code> is a signed
+component of Orion which communicates with external servers using
+HTTP</li>
+<li>After laying dormant for about two weeks, it receives and executes
+commands (“jobs”)</li>
+<li>Network traffic is masqueraded as the Orion Improvement Program
+protocol (telemetry)</li>
+<li>Reconnaissance is stored with legitimate data to make detection
+harder</li>
+<li>Backdoor is sandbox-aware using blocklists so that detection using
+anti-malware tools and forensics are harder</li>
 </ul></li>
 <li>Job capabilities
 <ul>
@@ -195,19 +223,26 @@
 </ul></li>
 <li>Method of delivery
 <ul>
-<li>Trojanized updates were digitally signed using SolarWind’s private keys</li>
+<li>Trojanized updates were digitally signed using SolarWind’s private
+keys</li>
 <li>Delivered file is a Windows Installer Patch file</li>
 <li>After installation, the host process loads the malicious DLL</li>
-<li>Attempts to resolve a subdomain of <code>avsvmcloud.com</code>, which will return a command and control domain through the <code>CNAME</code> record</li>
-<li>Traffic to command and control domain mimics the legitimate SolarWinds API</li>
+<li>Attempts to resolve a subdomain of <code>avsvmcloud.com</code>,
+which will return a command and control domain through the
+<code>CNAME</code> record</li>
+<li>Traffic to command and control domain mimics the legitimate
+SolarWinds API</li>
 </ul></li>
 </ul>
 </section>
 <section id="part-1-overview-risks-in-the-software-supply-chain" data-number="0.2">
-<h2 data-number="1.2"><span class="header-section-number">1.2</span> Part 1: Overview (Risks in the Software Supply Chain)</h2>
+<h2 data-number="1.2"><span class="header-section-number">1.2</span>
+Part 1: Overview (Risks in the Software Supply Chain)</h2>
 <ul>
-<li>As the SolarWinds attack has shown, supply chain attacks on any step of the supply chain can lead to significant breaches</li>
-<li>Let’s take a look at the potentials vulnerabilities in a supply chain</li>
+<li>As the SolarWinds attack has shown, supply chain attacks on any step
+of the supply chain can lead to significant breaches</li>
+<li>Let’s take a look at the potentials vulnerabilities in a supply
+chain</li>
 <li>Security is a lifecycle issue:
 <ul>
 <li>Mission thread</li>
@@ -227,11 +262,14 @@
 </ul></li>
 <li>Modern software development has a complex supply chain
 <ul>
-<li>Function is largely understood and can automate existing processes</li>
+<li>Function is largely understood and can automate existing
+processes</li>
 <li>Is large enough to not be manageable by a single organization</li>
-<li>Software can be a business opportunity for external organizations</li>
+<li>Software can be a business opportunity for external
+organizations</li>
 </ul></li>
-<li>Modern development is assembly of existing software; the supply chain gets longer
+<li>Modern development is assembly of existing software; the supply
+chain gets longer
 <ul>
 <li>App server</li>
 <li>HTTP server</li>
@@ -246,17 +284,22 @@
 <ul>
 <li>XCodeGhost, Expensive Wall, HackTask: WeChat, Angry Bird, iOBD2</li>
 </ul></li>
-<li>Both COTS and FLOSS can have software issues which can be hard to pinpoint (Heartbleed, Shellshock etc. - ~1 vulnerability per 10k lines of code)</li>
-<li>Generated or supplied data can be vulnerabilities too, but are almost never checked
+<li>Both COTS and FLOSS can have software issues which can be hard to
+pinpoint (Heartbleed, Shellshock etc. - ~1 vulnerability per 10k lines
+of code)</li>
+<li>Generated or supplied data can be vulnerabilities too, but are
+almost never checked
 <ul>
 <li>Data from i.e. Pandas, Numpy, TensorFlow, PyTorch etc.</li>
 <li>Kaggle, Data.gov, Google Images etc.</li>
 </ul></li>
 <li>Reducing software supply chain risk factors
 <ul>
-<li>Supplier capability: Supplier follows best practices for internal practices too</li>
+<li>Supplier capability: Supplier follows best practices for internal
+practices too</li>
 <li>Product security: The delivered product is secure</li>
-<li>Product distribution: Method of delivering the product is secure</li>
+<li>Product distribution: Method of delivering the product is
+secure</li>
 <li>Operational product control: The product is used securely</li>
 </ul></li>
 <li>Supplier security commitment evidence
@@ -276,10 +319,12 @@
 </ul></li>
 <li>Good product distribution practices
 <ul>
-<li>Understand that you inherit the consequences of bad upstream practices</li>
+<li>Understand that you inherit the consequences of bad upstream
+practices</li>
 <li>Require good security practices by your suppliers</li>
 <li>Security of delivered products must be assessed</li>
-<li>Additional risk of delivered products in their context must also be assessed</li>
+<li>Additional risk of delivered products in their context must also be
+assessed</li>
 <li>Internal suppliers should be used as little possible</li>
 <li>Build FLOSS code only with trusted compilers</li>
 </ul></li>
@@ -291,224 +336,396 @@
 </ul></li>
 <li>Integrating FLOSS
 <ul>
-<li>Establish a supplier: Self or a third party focusing on FLOSS (i.e. RedHat, SUSE etc.)</li>
-<li>Subject to same evaluation: Supplier capability, product security, product distribution, operational product control</li>
+<li>Establish a supplier: Self or a third party focusing on FLOSS
+(i.e. RedHat, SUSE etc.)</li>
+<li>Subject to same evaluation: Supplier capability, product security,
+product distribution, operational product control</li>
 </ul></li>
 </ul>
 </section>
 <section id="part-2-framework-socio-technical-framework-for-threat-modeling-a-software-supply-chain" data-number="0.3">
-<h2 data-number="1.3"><span class="header-section-number">1.3</span> Part 2: Framework (Socio-technical Framework for Threat Modeling a Software Supply Chain)</h2>
+<h2 data-number="1.3"><span class="header-section-number">1.3</span>
+Part 2: Framework (Socio-technical Framework for Threat Modeling a
+Software Supply Chain)</h2>
 <ul>
-<li>Now that we’ve analyzed the risks associated with supply chains, let’s take a look at how to model its vulnerabilites from a social and technical perspective</li>
+<li>Now that we’ve analyzed the risks associated with supply chains,
+let’s take a look at how to model its vulnerabilites from a social and
+technical perspective</li>
 <li>Software supply chains are similar to traditional supply chains</li>
-<li>A supply chain is created by deploying and using a product directly or reproducing it as a new product in repetition</li>
+<li>A supply chain is created by deploying and using a product directly
+or reproducing it as a new product in repetition</li>
 <li>Traditional supply chains can have risks
 <ul>
 <li>Late product delivery</li>
 <li>Counterfeits</li>
 <li>Human errors</li>
 </ul></li>
-<li>Software supply chains have risks too, i.e. faulty code (intentional or unintentional)</li>
-<li>Risk management is used to counteract these known vulnerabilities</li>
+<li>Software supply chains have risks too, i.e. faulty code (intentional
+or unintentional)</li>
+<li>Risk management is used to counteract these known
+vulnerabilities</li>
 <li>The first step is to create a threat model of the system</li>
 <li>Threat models must not be too complex in order to be useful</li>
 <li>Current practices in supply chain security
 <ul>
 <li>Classical CIA triad: Confidentiality, integrity, availability</li>
 <li>Some newer ones: Possession, authenticity, utility</li>
-<li>Specific to supply chains: Confidentiality, data integrity, source authenticity, availability, non-repudiation</li>
-<li>NIST publishes best practices for securing a supply chain, but not concrete recommendations</li>
+<li>Specific to supply chains: Confidentiality, data integrity, source
+authenticity, availability, non-repudiation</li>
+<li>NIST publishes best practices for securing a supply chain, but not
+concrete recommendations</li>
 </ul></li>
-<li>Thread modeling requires two processes: Modeling the system and modeling threats to the system</li>
-<li>Software systems and supply chains cannot be viewed as purely technical or social systems, but only as a combination of the two (a “sociotechnical” system)</li>
-<li>ISO 27005: A threat is a potential cause of an incident that might result in harm to systems and organizations</li>
-<li>Threat modeling systems should express and capture as many threats as necessary</li>
-<li>Actual threats: Intention, capability and opportunities, potential threats might miss one</li>
-<li>Both types of threats must be found, as potential threats can be prevented by acting early</li>
-<li>Supply chain vulnerabilities can be found by analyzing the relations of the integrated elements that compose each threat in the system</li>
-<li>The sociotechnical framework is based on two models/systems: A dynamic model of sociotechnical changes (“sociotechnical system”) and a static model (“security by consensus”)</li>
-<li>The social subsystem contains culture (collection of values) and structure (distribution of power)</li>
-<li>The technical subsystem contains methods (techniques) and machines (technical artifacts)</li>
-<li>All four subsystems *culture, structure, methods, machines) determine the security state of the system</li>
-<li>If one part of the system changes, the other parts must adapt (i.e. new, younger managers)</li>
-<li>The security by consensus system defines a few layers: ethical, political and legal, administrative and managerial, operation, application, operating system, hardware</li>
-<li>Both internal and external changes (social or technical) will affect security, so measures need to be deployed systematically</li>
-<li>Security frameworks make it possible to analyze supply chain security using the individual layers (vulnerabilities in one layer might for example be mitigated by another)</li>
-<li>By looking at software supply chains as interconnected sociotechnical systems reviewers can verify that the layers across the systems are secured similarly</li>
-<li>Comparing the different layers of the individual supplier’s sociotechnical systems allows for creating a chain of (dis-)trust, where for example the usefulness of digital signatures for the compiler binaries is negated by compiling unsigned source code or not checking the provided binaries’ signatures</li>
-<li>Six processes need to be analyzed: Supplier sourcing, software development and testing, software packaging, product delivery through network or software product manufacturing &amp; physical software product delivery - this can be done by analyzing the products which are being sent between the different processes</li>
-<li>Supplier sourcing and product delivery link companies together, which often leads to generic processes like software packaging</li>
-<li>FLOSS and COTS software are transmitted from supplier sourcing to software development and testing processes, including related secrets and vulnerability information</li>
-<li>In the delivery process, four or five elements (secrets, vulnerabilities, source package and/or binary package, user guide) are sent to the user (over the network or physically)</li>
-<li>The security by consensus model can be used to find social threats too; these exist due to human errors or behavior (intentional or not)
+<li>Thread modeling requires two processes: Modeling the system and
+modeling threats to the system</li>
+<li>Software systems and supply chains cannot be viewed as purely
+technical or social systems, but only as a combination of the two (a
+“sociotechnical” system)</li>
+<li>ISO 27005: A threat is a potential cause of an incident that might
+result in harm to systems and organizations</li>
+<li>Threat modeling systems should express and capture as many threats
+as necessary</li>
+<li>Actual threats: Intention, capability and opportunities, potential
+threats might miss one</li>
+<li>Both types of threats must be found, as potential threats can be
+prevented by acting early</li>
+<li>Supply chain vulnerabilities can be found by analyzing the relations
+of the integrated elements that compose each threat in the system</li>
+<li>The sociotechnical framework is based on two models/systems: A
+dynamic model of sociotechnical changes (“sociotechnical system”) and a
+static model (“security by consensus”)</li>
+<li>The social subsystem contains culture (collection of values) and
+structure (distribution of power)</li>
+<li>The technical subsystem contains methods (techniques) and machines
+(technical artifacts)</li>
+<li>All four subsystems *culture, structure, methods, machines)
+determine the security state of the system</li>
+<li>If one part of the system changes, the other parts must adapt
+(i.e. new, younger managers)</li>
+<li>The security by consensus system defines a few layers: ethical,
+political and legal, administrative and managerial, operation,
+application, operating system, hardware</li>
+<li>Both internal and external changes (social or technical) will affect
+security, so measures need to be deployed systematically</li>
+<li>Security frameworks make it possible to analyze supply chain
+security using the individual layers (vulnerabilities in one layer might
+for example be mitigated by another)</li>
+<li>By looking at software supply chains as interconnected
+sociotechnical systems reviewers can verify that the layers across the
+systems are secured similarly</li>
+<li>Comparing the different layers of the individual supplier’s
+sociotechnical systems allows for creating a chain of (dis-)trust, where
+for example the usefulness of digital signatures for the compiler
+binaries is negated by compiling unsigned source code or not checking
+the provided binaries’ signatures</li>
+<li>Six processes need to be analyzed: Supplier sourcing, software
+development and testing, software packaging, product delivery through
+network or software product manufacturing &amp; physical software
+product delivery - this can be done by analyzing the products which are
+being sent between the different processes</li>
+<li>Supplier sourcing and product delivery link companies together,
+which often leads to generic processes like software packaging</li>
+<li>FLOSS and COTS software are transmitted from supplier sourcing to
+software development and testing processes, including related secrets
+and vulnerability information</li>
+<li>In the delivery process, four or five elements (secrets,
+vulnerabilities, source package and/or binary package, user guide) are
+sent to the user (over the network or physically)</li>
+<li>The security by consensus model can be used to find social threats
+too; these exist due to human errors or behavior (intentional or not)
 <ul>
 <li>Suppliers can deny having sent a software product</li>
-<li>Ordered software products might not arrive in time (due to i.e. QA problems)</li>
-<li>Secrets of outsourced software might be disclosed by employees, i.e. hard-coded key or seed values</li>
-<li>Users might make configuration mistakes, such as choosing very short key lengths, if the user guide (which is being distributed as part of the product through the supply chain) has been tampered with</li>
+<li>Ordered software products might not arrive in time (due to i.e. QA
+problems)</li>
+<li>Secrets of outsourced software might be disclosed by employees,
+i.e. hard-coded key or seed values</li>
+<li>Users might make configuration mistakes, such as choosing very short
+key lengths, if the user guide (which is being distributed as part of
+the product through the supply chain) has been tampered with</li>
 </ul></li>
-<li>Technical threats can be analyzed using the three bottom layers of the security by consensus model (hardware, operating system, applications)
+<li>Technical threats can be analyzed using the three bottom layers of
+the security by consensus model (hardware, operating system,
+applications)
 <ul>
-<li>Software supplier’s storage hardware can be compromised, which allows externals to inject source code into i.e. source repositories or packages</li>
-<li>Outsourced software’s source repository can be breached to gain access to hard-coded keys (i.e. API keys in CI/CD env)</li>
+<li>Software supplier’s storage hardware can be compromised, which
+allows externals to inject source code into i.e. source repositories or
+packages</li>
+<li>Outsourced software’s source repository can be breached to gain
+access to hard-coded keys (i.e. API keys in CI/CD env)</li>
 <li>Download sites or update systems can be compromised</li>
 </ul></li>
-<li>Countermeasures to social or technical threats can be both social or technical, so both options must be considered
+<li>Countermeasures to social or technical threats can be both social or
+technical, so both options must be considered
 <ul>
-<li>When a recipient of a software product denies receiving it, a social solution would be to require a third-party notary to prove it (political and legal layer); a technical countermeasure could be to use digital signatures</li>
-<li>To prevent injection of source code during software distribution, a social solution could be a third-party escrow, and a technical countermeasure would be the use of i.e. a VPN or TLS</li>
+<li>When a recipient of a software product denies receiving it, a social
+solution would be to require a third-party notary to prove it (political
+and legal layer); a technical countermeasure could be to use digital
+signatures</li>
+<li>To prevent injection of source code during software distribution, a
+social solution could be a third-party escrow, and a technical
+countermeasure would be the use of i.e. a VPN or TLS</li>
 </ul></li>
 </ul>
 </section>
 <section id="part-3-implementation-in-toto-providing-farm-to-table-guarantees-for-bits-and-bytes" data-number="0.4">
-<h2 data-number="1.4"><span class="header-section-number">1.4</span> Part 3: Implementation (in-toto: Providing farm-to-table guarantees for bits and bytes)</h2>
+<h2 data-number="1.4"><span class="header-section-number">1.4</span>
+Part 3: Implementation (in-toto: Providing farm-to-table guarantees for
+bits and bytes)</h2>
 <ul>
-<li>Using this social and technical abstract, let us now take a look at a concrete implementation of a supply chain security system, in-toto</li>
+<li>Using this social and technical abstract, let us now take a look at
+a concrete implementation of a supply chain security system,
+in-toto</li>
 <li>Examples of supply chain attacks
 <ul>
 <li>Version control systems: Linux kernel, Gentoo and Google</li>
-<li>Build systems: Fedora, which allowed for signing backdoored version of security packages</li>
+<li>Build systems: Fedora, which allowed for signing backdoored version
+of security packages</li>
 <li>Build environment: CCleaner</li>
 <li>Software updaters: Microsoft, Adobe, Google and Linux distros</li>
-<li>Are now also used by nation states against foreign states and own citizens</li>
+<li>Are now also used by nation states against foreign states and own
+citizens</li>
 </ul></li>
 <li>Current state
 <ul>
 <li>Supply chain security is limited so securing individual steps</li>
-<li>Git commit signing: Controls which devs can modify what in a repo</li>
-<li>Reproducible builds: Enables building the software by multiple parties and result must be the same</li>
-<li>Software delivery is taken care of by many methods (i.e. APT/DNF/Flatpak repos etc.)</li>
+<li>Git commit signing: Controls which devs can modify what in a
+repo</li>
+<li>Reproducible builds: Enables building the software by multiple
+parties and result must be the same</li>
+<li>Software delivery is taken care of by many methods
+(i.e. APT/DNF/Flatpak repos etc.)</li>
 </ul></li>
 <li>Issues with the current state
 <ul>
-<li>Securing each state is useful, but it is possible to modify a step and feed it to the next one without being noticed</li>
-<li>No way to verify that the correct steps were followed or that the artifacts between the individual steps were not tampered with</li>
-<li>Web server compromise of Linux Mint enabled redirects of downloaded images, thus signatures, checksums etc. were rendered useless</li>
-<li>Fuzzers etc. are used, but the delivered product rarely includes information about the software it was tested with</li>
-<li>Solutions designed to secure individual supply chain steps cannot guarantee the security of the entire chain as a whole</li>
+<li>Securing each state is useful, but it is possible to modify a step
+and feed it to the next one without being noticed</li>
+<li>No way to verify that the correct steps were followed or that the
+artifacts between the individual steps were not tampered with</li>
+<li>Web server compromise of Linux Mint enabled redirects of downloaded
+images, thus signatures, checksums etc. were rendered useless</li>
+<li>Fuzzers etc. are used, but the delivered product rarely includes
+information about the software it was tested with</li>
+<li>Solutions designed to secure individual supply chain steps cannot
+guarantee the security of the entire chain as a whole</li>
 </ul></li>
 <li>in-toto intents to enforce the integrity of the entire supply chain
 <ul>
-<li>Declaration and signing of a layout with how and by whom the steps are to be carried out</li>
-<li>The involved parties record actions and create a signed statement (link metadata) for each step</li>
-<li>Link metadata can be verified for each step: Executed appropriately and by the correct party as defined in the layout</li>
+<li>Declaration and signing of a layout with how and by whom the steps
+are to be carried out</li>
+<li>The involved parties record actions and create a signed statement
+(link metadata) for each step</li>
+<li>Link metadata can be verified for each step: Executed appropriately
+and by the correct party as defined in the layout</li>
 </ul></li>
 <li>Checks
 <ul>
 <li>Requirements: I.e. no CVEs might be in the included libraries</li>
-<li>A step which creates the Spanish translation can only change <code>.po</code> files, not the application source code</li>
-<li>Such requirements can reduce the scope of actions an attacker can perform, even if steps in the chain are compromised</li>
-<li>Key compromises in any step does not invalidate all security measures (not a “lose-one, lose-all” solution)</li>
+<li>A step which creates the Spanish translation can only change
+<code>.po</code> files, not the application source code</li>
+<li>Such requirements can reduce the scope of actions an attacker can
+perform, even if steps in the chain are compromised</li>
+<li>Key compromises in any step does not invalidate all security
+measures (not a “lose-one, lose-all” solution)</li>
 </ul></li>
 <li>Definitions
 <ul>
-<li>Supply chain: Series of steps performed in order to create and distribute a delivered product</li>
-<li>Step: Operation in a chain that takes materials (source code and artifacts) and creates products (libraries, packages, binaries etc.). May be executed in parallel or on multiple hosts to test reproducibility or for speed</li>
+<li>Supply chain: Series of steps performed in order to create and
+distribute a delivered product</li>
+<li>Step: Operation in a chain that takes materials (source code and
+artifacts) and creates products (libraries, packages, binaries etc.).
+May be executed in parallel or on multiple hosts to test reproducibility
+or for speed</li>
 <li>Artifacts: Materials and products</li>
-<li>Byproducts: <code>STDOUT</code>, <code>STDERR</code>, return value etc.</li>
-<li>Link metadata: Contains materials, products and byproducts for the step and is signed by a functionary</li>
-<li>Functionary: Party who performs a step; can commit code, build software, perform QA, localizes docs etc. Can also be human or multiple hosts/people to enforce redundancy or consensus.</li>
-<li>Project owner: Defines the rules for the steps in a supply chain and is the foundation of trust.</li>
-<li>Layout: File defined by the project owner which defines which steps should be performed by which functionaries, rules for products, byproducts, materials and inspections</li>
-<li>Client: Instance which cryptographically validates delivered product</li>
+<li>Byproducts: <code>STDOUT</code>, <code>STDERR</code>, return value
+etc.</li>
+<li>Link metadata: Contains materials, products and byproducts for the
+step and is signed by a functionary</li>
+<li>Functionary: Party who performs a step; can commit code, build
+software, perform QA, localizes docs etc. Can also be human or multiple
+hosts/people to enforce redundancy or consensus.</li>
+<li>Project owner: Defines the rules for the steps in a supply chain and
+is the foundation of trust.</li>
+<li>Layout: File defined by the project owner which defines which steps
+should be performed by which functionaries, rules for products,
+byproducts, materials and inspections</li>
+<li>Client: Instance which cryptographically validates delivered
+product</li>
 <li>Delivered product: Contains software, layout and link metadata</li>
-<li>Inspections: Additional actions to be performed by the client on the delivered product to validate software</li>
+<li>Inspections: Additional actions to be performed by the client on the
+delivered product to validate software</li>
 </ul></li>
 <li>Threats which in-toto tries to protect against
 <ul>
-<li>Changing an artifact between two steps (so that modified output is the input of the next step in the chain)</li>
-<li>Acting as a step (i.e. as a compiler, introducing malware into compiled binaries)</li>
-<li>Providing a delivered product for which some steps were not performed</li>
+<li>Changing an artifact between two steps (so that modified output is
+the input of the next step in the chain)</li>
+<li>Acting as a step (i.e. as a compiler, introducing malware into
+compiled binaries)</li>
+<li>Providing a delivered product for which some steps were not
+performed</li>
 <li>Including outdated or vulnerable elements</li>
-<li>Providing a counterfeit version of the delivered product to users</li>
+<li>Providing a counterfeit version of the delivered product to
+users</li>
 </ul></li>
 <li>Security goals
 <ul>
-<li>Supply chain layout integrity: All steps have been performed in order</li>
-<li>Artifact flow integrity: Artifacts can’t be changed in between steps</li>
-<li>Step authentication: Steps can only be performed by the intended parties</li>
-<li>Implementation transparency: Existing supply chains need not be changed</li>
-<li>Graceful degradation of security properties: In the event of key compromise, not all security properties should be lost</li>
+<li>Supply chain layout integrity: All steps have been performed in
+order</li>
+<li>Artifact flow integrity: Artifacts can’t be changed in between
+steps</li>
+<li>Step authentication: Steps can only be performed by the intended
+parties</li>
+<li>Implementation transparency: Existing supply chains need not be
+changed</li>
+<li>Graceful degradation of security properties: In the event of key
+compromise, not all security properties should be lost</li>
 </ul></li>
 <li>Parties
 <ul>
 <li>Project owner: Defines the layout (i.e. FLOSS maintainer)</li>
-<li>Functionaries: Perform steps in the chain (i.e. build farm or human)</li>
-<li>Client: Inspects, verifies and utilizes a delivered product (i.e. end user)</li>
+<li>Functionaries: Perform steps in the chain (i.e. build farm or
+human)</li>
+<li>Client: Inspects, verifies and utilizes a delivered product
+(i.e. end user)</li>
 </ul></li>
-<li>Security properties with no key compromise (breach of infrastructure or comms channels, but not keys)
+<li>Security properties with no key compromise (breach of infrastructure
+or comms channels, but not keys)
 <ul>
-<li>Attacker cannot modify artifacts in between two steps or delivered product as the hash would fail validation</li>
-<li>Attacker cannot provide a product with missing or reordered steps because embedded steps information would detect tampering</li>
-<li>Attacker cannot provide link metadata because they can’t sign it</li>
+<li>Attacker cannot modify artifacts in between two steps or delivered
+product as the hash would fail validation</li>
+<li>Attacker cannot provide a product with missing or reordered steps
+because embedded steps information would detect tampering</li>
+<li>Attacker cannot provide link metadata because they can’t sign
+it</li>
 </ul></li>
 <li>Security properties with key compromise
 <ul>
-<li>Fake-check: Attacker fakes that step has been run (i.e. signing or tests) when it actually didn’t run</li>
-<li>Product modification: Attacker provides tampered artifact as input to next step</li>
-<li>Unintended retention: Attacker does not remove artifacts for next step which should have been removed, i.e. exploitable debug code</li>
-<li>Arbitrary supply chain control: Attacker is able to provide alternate delivered product, which creates an alternative supply chain</li>
-<li>Functionary compromise: Artifact flow integrity and step authentication is violated (attacker can forge link metadata), but attack surface is limited by rules of step that the functionary can do (i.e. unintended retention would only be possible if <code>DELETE</code> rule is missing). Can be mitigated by requiring multiple parties to do the job, thus requiring the breach to happen on i.e. multiple hosts.</li>
-<li>Project owner compromise: Allows redefinition of layout; layout key however is rarely used, and should be kept offline, requiring a physical breach</li>
+<li>Fake-check: Attacker fakes that step has been run (i.e. signing or
+tests) when it actually didn’t run</li>
+<li>Product modification: Attacker provides tampered artifact as input
+to next step</li>
+<li>Unintended retention: Attacker does not remove artifacts for next
+step which should have been removed, i.e. exploitable debug code</li>
+<li>Arbitrary supply chain control: Attacker is able to provide
+alternate delivered product, which creates an alternative supply
+chain</li>
+<li>Functionary compromise: Artifact flow integrity and step
+authentication is violated (attacker can forge link metadata), but
+attack surface is limited by rules of step that the functionary can do
+(i.e. unintended retention would only be possible if <code>DELETE</code>
+rule is missing). Can be mitigated by requiring multiple parties to do
+the job, thus requiring the breach to happen on i.e. multiple
+hosts.</li>
+<li>Project owner compromise: Allows redefinition of layout; layout key
+however is rarely used, and should be kept offline, requiring a physical
+breach</li>
 </ul></li>
 <li>User response to failed validations
 <ul>
-<li>If the user is i.e. testing out a package in an air-gapped VM, they might choose to ignore the error</li>
-<li>If the user is using a production system, they will probably detect or report the validation failure</li>
-<li>Actions taken are probably similar to signature validation failures today</li>
+<li>If the user is i.e. testing out a package in an air-gapped VM, they
+might choose to ignore the error</li>
+<li>If the user is using a production system, they will probably detect
+or report the validation failure</li>
+<li>Actions taken are probably similar to signature validation failures
+today</li>
 </ul></li>
 </ul>
 </section>
 <section id="part-4-evaluation-in-toto-providing-farm-to-table-guarantees-for-bits-and-bytes" data-number="0.5">
-<h2 data-number="1.5"><span class="header-section-number">1.5</span> Part 4: Evaluation (in-toto: Providing farm-to-table guarantees for bits and bytes)</h2>
+<h2 data-number="1.5"><span class="header-section-number">1.5</span>
+Part 4: Evaluation (in-toto: Providing farm-to-table guarantees for bits
+and bytes)</h2>
 <ul>
-<li>Finally, let’s analyze the results that the in-toto maintainers provided following some initial usage</li>
+<li>Finally, let’s analyze the results that the in-toto maintainers
+provided following some initial usage</li>
 <li>Debian rebuilders
 <ul>
-<li>Reproducible builds are bit-by-bit reproducible, so it is possible to build a package on a separate host and get the same hash on the result</li>
-<li>A <code>apt-transport</code> for in-toto is used to provide attestations of the resulting builds using link metadata</li>
-<li>Allow cryptographically asserting that a Debian package has been reproducibly built by <code>k</code> out of <code>n</code> rebuilders and the Debian build farm</li>
-<li>Modification of a package would require breaching at least <code>k</code> out of <code>n</code> rebuilders, which the client can verify</li>
+<li>Reproducible builds are bit-by-bit reproducible, so it is possible
+to build a package on a separate host and get the same hash on the
+result</li>
+<li>A <code>apt-transport</code> for in-toto is used to provide
+attestations of the resulting builds using link metadata</li>
+<li>Allow cryptographically asserting that a Debian package has been
+reproducibly built by <code>k</code> out of <code>n</code> rebuilders
+and the Debian build farm</li>
+<li>Modification of a package would require breaching at least
+<code>k</code> out of <code>n</code> rebuilders, which the client can
+verify</li>
 </ul></li>
 <li>Cloud native builds with Jenkins and Kubernetes
 <ul>
-<li>Cloud-native/containerized environments require high levels of automation</li>
+<li>Cloud-native/containerized environments require high levels of
+automation</li>
 <li>Exporters of metadata must be host- and infrastructure-agnostic</li>
-<li>Lead to implementation of a Jenkins plugin and a Kubernetes admission controller which allow for the tracking of all operations in a distributed system</li>
-<li>Pipelines are coordinators, workers are functionaries and submit metadata to an in-toto metadata store</li>
-<li>Admission controller validates information in the metadata store before deploying</li>
+<li>Lead to implementation of a Jenkins plugin and a Kubernetes
+admission controller which allow for the tracking of all operations in a
+distributed system</li>
+<li>Pipelines are coordinators, workers are functionaries and submit
+metadata to an in-toto metadata store</li>
+<li>Admission controller validates information in the metadata store
+before deploying</li>
 </ul></li>
 <li>E2E verification of Python packages
 <ul>
-<li>Tag step outputs Python code and YAML config files as products, which is signed using a YubiKey</li>
-<li>Builder receives source code from the first step and builds a Python wheel and updated metadata</li>
-<li>Signer receives source code from the first step and signs it, which is separate from the builder step as the builder step can, due to Python’s design, execute arbitrary code</li>
-<li>Inspection ensures that the build wheel matches the materials of the signer and the original source code from the first step (end-to-end verification)</li>
-<li>The Update Framework (TUF) is used to provide a higher layer of signed metadata and replay protection</li>
-<li>Offline keys (in safe deposit boxes) are used, so that breaches of infrastructure don’t lead to key compromise</li>
+<li>Tag step outputs Python code and YAML config files as products,
+which is signed using a YubiKey</li>
+<li>Builder receives source code from the first step and builds a Python
+wheel and updated metadata</li>
+<li>Signer receives source code from the first step and signs it, which
+is separate from the builder step as the builder step can, due to
+Python’s design, execute arbitrary code</li>
+<li>Inspection ensures that the build wheel matches the materials of the
+signer and the original source code from the first step (end-to-end
+verification)</li>
+<li>The Update Framework (TUF) is used to provide a higher layer of
+signed metadata and replay protection</li>
+<li>Offline keys (in safe deposit boxes) are used, so that breaches of
+infrastructure don’t lead to key compromise</li>
 </ul></li>
 <li>Storage overhead
 <ul>
-<li>In the case of the Datadog deployment, ~19% of repo size was taken up by in-toto data, which is about four times higher than TUF</li>
-<li>Size is primarily larger because the data is stored as part of the pipeline</li>
+<li>In the case of the Datadog deployment, ~19% of repo size was taken
+up by in-toto data, which is about four times higher than TUF</li>
+<li>Size is primarily larger because the data is stored as part of the
+pipeline</li>
 <li>Large signatures also add to the size</li>
 </ul></li>
 <li>Network overhead
 <ul>
-<li>This overhead is of importance as large downloads increase i.e. installation times</li>
-<li>Size scales with number of files, not file size due to links making up much of the size</li>
-<li>Metadata size is ~44% of the package size, but can escalate if many small files are included</li>
+<li>This overhead is of importance as large downloads increase
+i.e. installation times</li>
+<li>Size scales with number of files, not file size due to links making
+up much of the size</li>
+<li>Metadata size is ~44% of the package size, but can escalate if many
+small files are included</li>
 </ul></li>
-<li>Verification overhead is fairly low, with a verification overhead of ~0.6 seconds on an i7-6500U with 8 GB of RAM</li>
+<li>Verification overhead is fairly low, with a verification overhead of
+~0.6 seconds on an i7-6500U with 8 GB of RAM</li>
 <li>Protection against previous breaches
 <ul>
-<li>Three categories of breaches: Control of infrastructure but not functionary keys, control of part of infrastructure or keys of specific functionary, and control of the entire supply chain by compromising project owner infrastructure including keys</li>
-<li>The majority of surveyed attacks (23/30) did not include a key compromise, where in-toto’s client inspection would have detected the tampering</li>
-<li>In the Keydnap attack, where an Apple developer certificate was stolen and used to sign a malicious software package, inspection with in-toto would have detected the attack due to a unauthorized functionary signing the link metadata</li>
-<li>In another attack, the developer’s SSH key was used to sign a malicious Python package, which could have been prevented with in-toto as the files extracted from the malicious package would not match the source from the first step in the chain</li>
-<li>CCleaner and RedHat attacks would not have been effective against Reproducible Builds and Datadog’s setup due to the threshold mechanism (where multiple hosts build the artifacts), but the Cloud-Native deployment would not detect these attacks</li>
-<li>In total, both Cloud-Native (with 83% prevention as a result of in-toto usage) and reproducible builds (with 90% prevention) integrations of in-toto would prevent most historical attacks</li>
-<li>Integration of in-toto with secure update systems like Datadog’s deployment provides further protection (against 100% of surveyed historical supply chain attacks in this case)</li>
+<li>Three categories of breaches: Control of infrastructure but not
+functionary keys, control of part of infrastructure or keys of specific
+functionary, and control of the entire supply chain by compromising
+project owner infrastructure including keys</li>
+<li>The majority of surveyed attacks (23/30) did not include a key
+compromise, where in-toto’s client inspection would have detected the
+tampering</li>
+<li>In the Keydnap attack, where an Apple developer certificate was
+stolen and used to sign a malicious software package, inspection with
+in-toto would have detected the attack due to a unauthorized functionary
+signing the link metadata</li>
+<li>In another attack, the developer’s SSH key was used to sign a
+malicious Python package, which could have been prevented with in-toto
+as the files extracted from the malicious package would not match the
+source from the first step in the chain</li>
+<li>CCleaner and RedHat attacks would not have been effective against
+Reproducible Builds and Datadog’s setup due to the threshold mechanism
+(where multiple hosts build the artifacts), but the Cloud-Native
+deployment would not detect these attacks</li>
+<li>In total, both Cloud-Native (with 83% prevention as a result of
+in-toto usage) and reproducible builds (with 90% prevention)
+integrations of in-toto would prevent most historical attacks</li>
+<li>Integration of in-toto with secure update systems like Datadog’s
+deployment provides further protection (against 100% of surveyed
+historical supply chain attacks in this case)</li>
 </ul></li>
 </ul>
 </section>

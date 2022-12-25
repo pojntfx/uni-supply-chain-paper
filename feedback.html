@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Felicitas Pojtinger" />
   <meta name="dcterms.date" content="2022-02-19" />
-  <meta name="keywords" content="supply chain, security, solarwinds, modeling, in-toto" />
+  <meta name="keywords" content="supply
+chain, security, solarwinds, modeling, in-toto" />
   <title>The SolarWinds Attack and Farm-to-table Methods in the Development Process: Review</title>
   <style>
     html {
@@ -24,7 +25,7 @@
       padding-top: 50px;
       padding-bottom: 50px;
       hyphens: auto;
-      word-wrap: break-word;
+      overflow-wrap: break-word;
       text-rendering: optimizeLegibility;
       font-kerning: normal;
     }
@@ -32,6 +33,9 @@
       body {
         font-size: 0.9em;
         padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
       }
     }
     @media print {
@@ -95,6 +99,7 @@
     pre code {
       padding: 0;
       overflow: visible;
+      overflow-wrap: normal;
     }
     .sourceCode {
      background-color: transparent;
@@ -136,6 +141,12 @@
     #TOC li {
       list-style: none;
     }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
     #TOC a:not(:hover) {
       text-decoration: none;
     }
@@ -146,39 +157,134 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">The SolarWinds Attack and Farm-to-table Methods in the Development Process: Review</h1>
-<p class="subtitle">Mitigating disasters through supply chain security</p>
+<h1 class="title">The SolarWinds Attack and Farm-to-table Methods in the
+Development Process: Review</h1>
+<p class="subtitle">Mitigating disasters through supply chain
+security</p>
 <p class="author">Felicitas Pojtinger</p>
 <p class="date">2022-02-19</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#einführung"><span class="toc-section-number">1.1</span> Einführung</a></li>
-<li><a href="#feedback"><span class="toc-section-number">1.2</span> Feedback</a></li>
-<li><a href="#fazit"><span class="toc-section-number">1.3</span> Fazit</a></li>
+<li><a href="#einführung"><span class="toc-section-number">1.1</span>
+Einführung</a></li>
+<li><a href="#feedback"><span class="toc-section-number">1.2</span>
+Feedback</a></li>
+<li><a href="#fazit"><span class="toc-section-number">1.3</span>
+Fazit</a></li>
 </ul>
 </nav>
 <section id="einführung" data-number="0.1">
-<h2 data-number="1.1"><span class="header-section-number">1.1</span> Einführung</h2>
-<p>Im Rahmen der Vorlesung wählte ich ein Thema, welches mich schon seit längerem beschäftigt: Supply Chain Security. Ich hoffte über meine Vorerfahrung durch einige Open-Source-Projekte im Bereich einen relativ einfachen Einstieg in das Thema zu haben und einige der Erkenntnisse auch auf diese anwenden zu können.</p>
+<h2 data-number="1.1"><span class="header-section-number">1.1</span>
+Einführung</h2>
+<p>Im Rahmen der Vorlesung wählte ich ein Thema, welches mich schon seit
+längerem beschäftigt: Supply Chain Security. Ich hoffte über meine
+Vorerfahrung durch einige Open-Source-Projekte im Bereich einen relativ
+einfachen Einstieg in das Thema zu haben und einige der Erkenntnisse
+auch auf diese anwenden zu können.</p>
 </section>
 <section id="feedback" data-number="0.2">
-<h2 data-number="1.2"><span class="header-section-number">1.2</span> Feedback</h2>
-<p>Schon zuvor war mir bewusst, dass eines der Hauptprobleme beim Schreiben des Papers die Verfügbarkeit von Quellen sein würde. Der immer noch relativ junge Bereich der IT-Sicherheit baut stark auf das Veröffentlichen via Blogs, Repositories und Vorträge/Videos auf, welche schwer zu zitieren sind, obwohl sie Primärquellen darstellen. Eine weitere Hürde, welche ich zum Start sah, war das Schreiben in LaTeX bzw. Markdown; während ich zwar zuvor schon oft in Isolation mit diesen Tools gearbeitet hatte (LaTeX im Rahmen von Projektberichten, Markdown im Rahmen von Projektdokumentation) hatte ich die beiden zuvor noch nicht kombiniert, weshalb vor dem Start des Schreibens noch einige Dinge unklar waren.</p>
-<p>Dementsprechend konnten viele neue Erfahrungen mittels des Schreibprozesses erlangt werden, insbesondere im Rahmen der Recherchephase. Ich hatte versucht mich stark an die Struktur der Vorlesung zu halten und startete daher mit einer Recherche im Web und in dort veröffentlichten Journals. Schnell bemerkte ich hierbei das erste große Problem: Speziell im Rahmen der IT-Sicherheit lassen sich (zitierbare) Quellen nur schwer finden. Blogposts und ähnlichen Medien fehlt das Peer-Review, und veröffentlichte Paper sind fast nie frei verfügbar. In anderen Worten: Ohne freie Plattformen wie Sci-Hub und Library Genesis ist, selbst wenn ein Zugang zu diesen unfreien Journals vorhanden ist, Recherche kaum möglich und stellt zudem auch ein ethisches Hindernis dar. In der Vorlesung wurde hierbei z.B. angesprochen, dass Artikel möglichst gesammelt und dann überflogen werden sollen - sind jedoch alle Artikel unfrei lizenziert und kaum zugänglich, so wird eine schnelle Bewertung der Nutzbarkeit von Artikeln natürlich deutlich schwerer. Dieser Kontrast ist besonders dann spürbar wenn man es mit der Recherche via nicht-zitierbaren Quellen (i.e. Blogposts) vergleicht; hier ist die Zeit, welche zum Finden von Informationen und suche nach weiteren Informationen mit z.B. Google notwendig ist, auf deren Basis drastisch reduziert. Eine weitere Hürde im Bereich der IT-Security speziell ist, dass viele Paper aus Forschungsstipendien des US-Militärs stammen und dementsprechend zwar oft in anderen Papern zitiert, jedoch (ohne Sci-Hub) nicht zugänglich sind. Neben dem Umgang mit diesen freien Methoden, um an Quellen zu gelangen, konnte aber auch vor allem der Umgang mit LaTeX/BibTeX gut geschult werden. Im Paper hatte ich mich für eine Toolchain auf Basis von Markdown und LaTeX mittels Pandoc entschieden, wodurch viele der Komplexitäten von LaTeX durch den deutlich einfacheren Syntax von Markdown entschärft werden konnten, ohne aber die Fähigkeiten von BibTeX usw. zu verlieren. Dieses System war zum Beginn ein wenig gewöhnungsbedürftig, führte jedoch nach relativ kurzer Zeit zu einer sehr zufriedenstellenden Produktivität.</p>
-<p>Beim Recherche- und Schreibprozess ist mir mehrmals der “Writer’s Block” zum Verhängnis geworden. Der Grund hierfür schien zumeist gewesen zu sein, dass ich zu wenige Quellen zu Verfügung hatte und versuchte zu “Dampfplaudern”, was zumeist durch eine weitere Recherche gelöst werden konnte. Besonders bei den Kapiteln Abstract, Introduction und Summary jedoch fiel es mir sehr schwer mich nicht zu wiederholen; schließlich soll das Abstract bereits die Ergebnisse beinhalten, die Introduction aber nicht einfach nur das Abstract kopieren usw. Dies konnte ich jedoch schlussendlich relativ einfach lösen, indem ich diese Abschnitte bis zum Ende einfach ignorierte und dann in diesen über den Rest des Papers deutlich einfacher reflektieren konnte. Das Paper auf Englisch zu schreiben war eine weitere Erfahrung, welche ich in diesem Rahmen gut ausprobieren konnte. Rückblickend schien dies definitiv die richtige Entscheidung gewesen zu sein, da ansonsten sehr viele “unnötige” Übersetzungen notwendig gewesen wären, schließlich sind sämtliche Quellen und der Fachjargon auf Englisch.</p>
-<p>Das Feedback zum Paper war durchaus positiv, dennoch aber gibt es mehrere Stellen an welchen man das Paper definitiv noch verbessert könnte. Das Thema scheint interessant gewesen zu sein, aber bei manchen Themen (wie z.B. die sozialen Aspekte von sicheren Lieferketten) hätte man definitiv noch weiter in die Tiefe gehen können. Angesprochen wurden zudem auch noch ein paar Aspekte, welche mit einer etwas kritischeren Betrachtung der externen Quellen auch zuvor schon aufgefallen wären. Auch eine ganzheitliche Betrachtung des Softwareentwicklungsprozesses hätte noch eine gute Erweiterung/Schlussfolgerung sein können; viele Probleme, welche die Lieferkette betreffen, scheinen sich auch in anderen Bereichen der Softwareentwicklung in Form der grundlegenden Ansätze, wie Probleme bearbeitet werden, wiederzufinden.</p>
-<p>Beim Schreiben meiner nächsten wissenschaftlichen Arbeit möchte ich vor allem versuchen, aktiver Quellen während der Recherchephase zu notieren. Wie schon zuvor beschrieben ist es relativ schwer mit nicht frei verfügbaren Quellen wie Journals Artikel überhaupt zu finden, noch schwerer aber ist es die genauen Stellen, welche man las, wiederzufinden, da nicht einfach ein Link zur Textstelle gespeichert werden kann. Auch das frühere Notieren von Stichpunkten zum Thema hätte hilfreich sein können, auch da dies das detaillierte Auseinandersetzen mit dem Thema, welches man gerade liest, erfordert. Am Korrekturprozess gibt es ebenfalls Verbesserungsmöglichkeiten; hier hatten sich einige Grammatikfehler eingeschlichen, welche vermutlich durch ein früheres Korrekturlesen, sofern möglich von einem Native Speaker, hätten verhindert werden können.</p>
+<h2 data-number="1.2"><span class="header-section-number">1.2</span>
+Feedback</h2>
+<p>Schon zuvor war mir bewusst, dass eines der Hauptprobleme beim
+Schreiben des Papers die Verfügbarkeit von Quellen sein würde. Der immer
+noch relativ junge Bereich der IT-Sicherheit baut stark auf das
+Veröffentlichen via Blogs, Repositories und Vorträge/Videos auf, welche
+schwer zu zitieren sind, obwohl sie Primärquellen darstellen. Eine
+weitere Hürde, welche ich zum Start sah, war das Schreiben in LaTeX bzw.
+Markdown; während ich zwar zuvor schon oft in Isolation mit diesen Tools
+gearbeitet hatte (LaTeX im Rahmen von Projektberichten, Markdown im
+Rahmen von Projektdokumentation) hatte ich die beiden zuvor noch nicht
+kombiniert, weshalb vor dem Start des Schreibens noch einige Dinge
+unklar waren.</p>
+<p>Dementsprechend konnten viele neue Erfahrungen mittels des
+Schreibprozesses erlangt werden, insbesondere im Rahmen der
+Recherchephase. Ich hatte versucht mich stark an die Struktur der
+Vorlesung zu halten und startete daher mit einer Recherche im Web und in
+dort veröffentlichten Journals. Schnell bemerkte ich hierbei das erste
+große Problem: Speziell im Rahmen der IT-Sicherheit lassen sich
+(zitierbare) Quellen nur schwer finden. Blogposts und ähnlichen Medien
+fehlt das Peer-Review, und veröffentlichte Paper sind fast nie frei
+verfügbar. In anderen Worten: Ohne freie Plattformen wie Sci-Hub und
+Library Genesis ist, selbst wenn ein Zugang zu diesen unfreien Journals
+vorhanden ist, Recherche kaum möglich und stellt zudem auch ein
+ethisches Hindernis dar. In der Vorlesung wurde hierbei z.B.
+angesprochen, dass Artikel möglichst gesammelt und dann überflogen
+werden sollen - sind jedoch alle Artikel unfrei lizenziert und kaum
+zugänglich, so wird eine schnelle Bewertung der Nutzbarkeit von Artikeln
+natürlich deutlich schwerer. Dieser Kontrast ist besonders dann spürbar
+wenn man es mit der Recherche via nicht-zitierbaren Quellen
+(i.e. Blogposts) vergleicht; hier ist die Zeit, welche zum Finden von
+Informationen und suche nach weiteren Informationen mit z.B. Google
+notwendig ist, auf deren Basis drastisch reduziert. Eine weitere Hürde
+im Bereich der IT-Security speziell ist, dass viele Paper aus
+Forschungsstipendien des US-Militärs stammen und dementsprechend zwar
+oft in anderen Papern zitiert, jedoch (ohne Sci-Hub) nicht zugänglich
+sind. Neben dem Umgang mit diesen freien Methoden, um an Quellen zu
+gelangen, konnte aber auch vor allem der Umgang mit LaTeX/BibTeX gut
+geschult werden. Im Paper hatte ich mich für eine Toolchain auf Basis
+von Markdown und LaTeX mittels Pandoc entschieden, wodurch viele der
+Komplexitäten von LaTeX durch den deutlich einfacheren Syntax von
+Markdown entschärft werden konnten, ohne aber die Fähigkeiten von BibTeX
+usw. zu verlieren. Dieses System war zum Beginn ein wenig
+gewöhnungsbedürftig, führte jedoch nach relativ kurzer Zeit zu einer
+sehr zufriedenstellenden Produktivität.</p>
+<p>Beim Recherche- und Schreibprozess ist mir mehrmals der “Writer’s
+Block” zum Verhängnis geworden. Der Grund hierfür schien zumeist gewesen
+zu sein, dass ich zu wenige Quellen zu Verfügung hatte und versuchte zu
+“Dampfplaudern”, was zumeist durch eine weitere Recherche gelöst werden
+konnte. Besonders bei den Kapiteln Abstract, Introduction und Summary
+jedoch fiel es mir sehr schwer mich nicht zu wiederholen; schließlich
+soll das Abstract bereits die Ergebnisse beinhalten, die Introduction
+aber nicht einfach nur das Abstract kopieren usw. Dies konnte ich jedoch
+schlussendlich relativ einfach lösen, indem ich diese Abschnitte bis zum
+Ende einfach ignorierte und dann in diesen über den Rest des Papers
+deutlich einfacher reflektieren konnte. Das Paper auf Englisch zu
+schreiben war eine weitere Erfahrung, welche ich in diesem Rahmen gut
+ausprobieren konnte. Rückblickend schien dies definitiv die richtige
+Entscheidung gewesen zu sein, da ansonsten sehr viele “unnötige”
+Übersetzungen notwendig gewesen wären, schließlich sind sämtliche
+Quellen und der Fachjargon auf Englisch.</p>
+<p>Das Feedback zum Paper war durchaus positiv, dennoch aber gibt es
+mehrere Stellen an welchen man das Paper definitiv noch verbessert
+könnte. Das Thema scheint interessant gewesen zu sein, aber bei manchen
+Themen (wie z.B. die sozialen Aspekte von sicheren Lieferketten) hätte
+man definitiv noch weiter in die Tiefe gehen können. Angesprochen wurden
+zudem auch noch ein paar Aspekte, welche mit einer etwas kritischeren
+Betrachtung der externen Quellen auch zuvor schon aufgefallen wären.
+Auch eine ganzheitliche Betrachtung des Softwareentwicklungsprozesses
+hätte noch eine gute Erweiterung/Schlussfolgerung sein können; viele
+Probleme, welche die Lieferkette betreffen, scheinen sich auch in
+anderen Bereichen der Softwareentwicklung in Form der grundlegenden
+Ansätze, wie Probleme bearbeitet werden, wiederzufinden.</p>
+<p>Beim Schreiben meiner nächsten wissenschaftlichen Arbeit möchte ich
+vor allem versuchen, aktiver Quellen während der Recherchephase zu
+notieren. Wie schon zuvor beschrieben ist es relativ schwer mit nicht
+frei verfügbaren Quellen wie Journals Artikel überhaupt zu finden, noch
+schwerer aber ist es die genauen Stellen, welche man las,
+wiederzufinden, da nicht einfach ein Link zur Textstelle gespeichert
+werden kann. Auch das frühere Notieren von Stichpunkten zum Thema hätte
+hilfreich sein können, auch da dies das detaillierte Auseinandersetzen
+mit dem Thema, welches man gerade liest, erfordert. Am Korrekturprozess
+gibt es ebenfalls Verbesserungsmöglichkeiten; hier hatten sich einige
+Grammatikfehler eingeschlichen, welche vermutlich durch ein früheres
+Korrekturlesen, sofern möglich von einem Native Speaker, hätten
+verhindert werden können.</p>
 </section>
 <section id="fazit" data-number="0.3">
-<h2 data-number="1.3"><span class="header-section-number">1.3</span> Fazit</h2>
-<p>Zusammenfassend war zwar ein deutlicher zeitlicher Aufwand notwendig, um das Paper zu schreiben, jedoch wurden auch viele notwendigen Erfahrungen gesammelt und z.B. das freie Build-System, mit welchem das Paper erstellt wurde, auch schon in anderen Projekten verwendet. Auch der Prozess der Recherche hat viele neue Quellen und Plattformen gezeigt, deren Relevanz mir zuvor nicht so stark wie jetzt bewusst war, wodurch ich hoffe bei meinem nächsten Paper die noch vorhandenen Probleme zu verbessern.</p>
+<h2 data-number="1.3"><span class="header-section-number">1.3</span>
+Fazit</h2>
+<p>Zusammenfassend war zwar ein deutlicher zeitlicher Aufwand notwendig,
+um das Paper zu schreiben, jedoch wurden auch viele notwendigen
+Erfahrungen gesammelt und z.B. das freie Build-System, mit welchem das
+Paper erstellt wurde, auch schon in anderen Projekten verwendet. Auch
+der Prozess der Recherche hat viele neue Quellen und Plattformen
+gezeigt, deren Relevanz mir zuvor nicht so stark wie jetzt bewusst war,
+wodurch ich hoffe bei meinem nächsten Paper die noch vorhandenen
+Probleme zu verbessern.</p>
 </section>
 </body>
 </html>
