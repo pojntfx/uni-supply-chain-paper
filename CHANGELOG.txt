@@ -1,208 +1,202 @@
-commit 5740f66b8c202dd296629856c982b9e2ff698db1
-Author: Felicitas Pojtinger <felicitas@pojtinger.com>
-Date:   Fri Jun 24 18:54:54 2022 +0200
-
-    chore: Update personal info
-
-commit f955dd4c82d7aa87e4703199c5cab17b2aceebb5
+commit d58eafe6457c728a6c789a72acc6373e93144d5b
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sat Feb 19 23:04:51 2022 +0100
 
     feat: Add feedback
 
-commit 33d7fbf564bccff0e7911906a423487c8deb12ab
+commit f967827e31991bce696d0f98dfecde4b84cce4b7
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sat Jan 8 18:16:13 2022 +0100
 
     refactor: Fix typos and add citation on origin of SolarWinds attackers
 
-commit ce52460aa7edb522c7f0fad8c218574210630e75
+commit b2249081fa70e4173edf5f498435ec96eee58567
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sat Jan 8 02:48:18 2022 +0100
 
     feat: Add citation file
 
-commit 2918cf0385678dc12f76f688f376f59945a3f5ae
+commit 14747a857d6d2d8404cb1cc3f9318d9e09d1554c
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sat Jan 8 02:37:54 2022 +0100
 
     refactor: Add citations of individual attacks
 
-commit 55fb837ed8caa183fafe9043b9407c59aa88378b
+commit ab510e03992184bd6e047d2ae72d54fcfddcff8d
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 23:48:50 2022 +0100
 
     feat: Add author's affiliation
 
-commit c599238ade12e339554011ff5aa17118c15d3e7f
+commit 0aa4f82609a8c307a0957420f20a45498995f09a
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 23:35:01 2022 +0100
 
     feat: Add citations
 
-commit 3a678d7e4c09e05a5be92dcba6ffdf5833e6af1e
+commit 5276c237c300919850d348114106a6838c4daf47
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 20:51:45 2022 +0100
 
     build: Add Deliverance CI
 
-commit be384c47d92678205d4dce561f2586ac6d8867b1
+commit 24979d7e521259a574e7062578a0dee1bca6fad5
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 20:51:20 2022 +0100
 
     feat: Add basic build system
 
-commit bdd277890a61ba90ed06203e6be2433a278ef80d
+commit 0466a47003b2a28b9f73204f3ed46cdf40d5c3bd
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 20:27:23 2022 +0100
 
     feat: Add abstract and introduction
 
-commit ebb10329aba2327e294635922c412a52eec0231f
+commit 812e15181728de8ad174f2ee117b2d030e6ccc48
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 16:27:42 2022 +0100
 
     feat: Add section on related work
 
-commit 0786db0e6914b72ef5f67c7b91306e41ac475572
+commit e6dbddcc0822b89422d10851ea5205b608e66c2a
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 15:25:42 2022 +0100
 
     refactor: Rework rest of in-toto section
 
-commit 12f99a833bcbd6049bb8c1b31387c3129833ad43
+commit c263ea70535d3ddf5b52b3929ff3d7a1ad2d35e1
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 15:01:24 2022 +0100
 
     refactor: Rework initial in-toto section
 
-commit d55de2843c039fc3fc50bbcede8fae9feb36ed4b
+commit cd8282f5022ff39160c5ba4489ba840a78f1af9e
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 14:30:14 2022 +0100
 
     refactor: Rework modeling section
 
-commit 9cab6e403f59b16c1a2ecf684da19f126f55b800
+commit c081b106416386e80af55a37d12e7ed5bb600178
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 13:58:58 2022 +0100
 
     refactor: Rework historical and overview sections
 
-commit e953fb6ebe3fd0ddb91c3e262c43368db1cb3c25
+commit 5a42562aca9fecbcd8c0331c773f896851ead779
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 04:18:35 2022 +0100
 
     feat: Add section on overhead assessment
 
-commit 5e0b96d4f3f04057dc5ce8c2904c5a30d827a460
+commit 2a9be439184110ce0d3c6d1736115a1d1cfc8826
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 03:46:28 2022 +0100
 
     feat: Add results of security evaluation of in-toto
 
-commit 5dc81ac9303be4a9476438590af1dc1d6fa5ae40
+commit 12afb04d908a7f4cd19a3b81c79cf01778ccabf9
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 03:10:18 2022 +0100
 
     feat: Add section on results of key compromises
 
-commit 7d2e7918e897e4c523ea56cef09d8e2b4a95ba2c
+commit e45c425c3c058c8d53680f9260dc6c62e2a25030
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 02:14:16 2022 +0100
 
     feat: Add section on in-toto terminology
 
-commit 5a8ea28b3e6c6e3b490f14e7c6b87bd18ea5bca9
+commit 4495911d82145be0a69561eebc8acaee1ae0a9cd
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Thu Jan 6 01:42:22 2022 +0100
 
     feat: Add introduction on in-toto
 
-commit 3ab4ef238e3276ce1631f2ad2b74a810632acc66
+commit 1ad0106d7a79a5c2499f94d86598c68fa8a832c6
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Wed Jan 5 23:49:51 2022 +0100
 
     feat: Add section on supply chain modeling
 
-commit ed532a20611a6424e39f05cd7269cebffc4cfd58
+commit 1b36efb9d218985c40acd992df14915a7cb2eeec
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Wed Jan 5 22:30:00 2022 +0100
 
     feat: Add section on an overview of supply chain security measures
 
-commit f4d02bd00e9a2230b167d1c91991341e2be59d38
+commit 6b003bf78c7660545b2f2d14f0e534b0a8077887
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Wed Jan 5 21:54:45 2022 +0100
 
     feat: Add first section of text form
 
-commit 17bc16f3180d991c66937cf2e3556fd2ab0646c3
+commit 2c13b4b1a52ade73deed538223651227b995dbe4
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Wed Jan 5 21:22:32 2022 +0100
 
     feat: add introductions/transitions between sections
 
-commit d2f8137dc5f99671ed0fe33284decff74fa63f86
+commit b415c34bb1508b3f29574e9f3215431d25dbfb1e
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Wed Jan 5 21:14:18 2022 +0100
 
     feat: Add info on the attack itself
 
-commit 180c1baaccc2201f6c0395c9fe081dd2bacaa214
+commit 12e97fb79fe9eef8d5a0ccbb749f4a0efc321b78
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Tue Jan 4 04:11:17 2022 +0100
 
     feat: Add sections on overhead and historical checks
 
-commit 5cad9820f3c1d484c3385a9e647d04493e7c2c60
+commit 0365200940dd09312fa3a346ecd3dfb4b69292ef
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Tue Jan 4 03:18:05 2022 +0100
 
     feat: Add notes on existing deployment
 
-commit a1f545340c477bc7d83f4874dd9a0e81392ed241
+commit 0cec72671c568d00d7ea0a0e4dc44be3d0ec5078
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Tue Jan 4 02:33:12 2022 +0100
 
     feat: Add sections on on parties and key- and non-key breaches
 
-commit 1680c82d1783499cb03f480c1fe546eb3afa0530
+commit 9e7cd839c1e4fc1f76bf12ea60cb501904d6ad09
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Tue Jan 4 01:37:16 2022 +0100
 
     feat: Start adding sections on `in-toto`'s security goals
 
-commit b5e63b0916ca497dc2806cbfb3bf145f5c57b012
+commit abbd8496e6cbd77da61373f36a0c1c20f3ebf7e7
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Mon Jan 3 22:35:44 2022 +0100
 
     feat: Add start of summary of in-toto
 
-commit 28738427830334e12477e7ffce54b2e4fe4564f2
+commit a8b66b83b3e07a49cbe27978a219c26c663e67fe
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Mon Jan 3 22:11:13 2022 +0100
 
     feat: Add nodes on DoD publication
 
-commit 362fa124c25760246256485c77f08c1e2f3edbdf
+commit f4d422348290920aaeee911d2801576fb828bd43
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Mon Jan 3 20:59:47 2022 +0100
 
     feat: Add rest of the sections on the sociotechnical approach
 
-commit 6d91a0bed8ceaa440a360164a6f317d7cb89132a
+commit 45852ad0ca3affebf20c6f870b00c5a6475894d9
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Mon Jan 3 20:02:39 2022 +0100
 
     feat: Add first sections on the sociotechnical approach
 
-commit 7c44c7d96c555bdcf6fc797ab0675b45d2dc7cfd
+commit 71a054c0e21cd11a23c161739842070f623b5012
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sun Jan 2 18:06:30 2022 +0100
 
     feat: Add sources for reading list
 
-commit ac6360e02a43caa6b7377c8af377fd8de89db4be
+commit 4ec7f52f7b0f71fcb9cdf31694f5bb5adee63be4
 Author: Felicitas Pojtinger <felicitas@pojtinger.com>
 Date:   Sun Jan 2 16:40:33 2022 +0100
 
